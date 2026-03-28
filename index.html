@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MA Pain Management Auth Lookup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding-bottom: 20px;
+        }
+
+        .header {
+            background: #2c5f8d;
+            color: white;
+            padding: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .search-container {
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .clear-btn {
+            background: #e0e0e0;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .filters {
+            background: white;
+            margin: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .filter-group {
+            margin-bottom: 12px;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .chip {
+            background: #e8f0f7;
+            border: 1px solid #2c5f8d;
+            color: #2c5f8d;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .chip.active {
+            background: #2c5f8d;
+            color: white;
+        }
+
+        .results-count {
+            margin: 12px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .results {
+            margin: 0 12px;
+        }
+
+        .result-card {
+            background: white;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .result-header {
+            background: #f8f9fa;
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .payer-name {
+            font-weight: 600;
+            color: #2c5f8d;
+            font-size: 15px;
+        }
+
+        .procedure-name {
+            font-size: 14px;
+            color: #333;
+            margin-top: 4px;
+        }
+
+        .result-body {
+            padding: 12px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+            min-width: 80px;
+        }
+
+        .info-value {
+            font-size: 13px;
+            color: #333;
+            flex: 1;
+            text-align: right;
+        }
+
+        .auth-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .auth-yes {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .auth-no {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .cpt-codes {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .notes {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #555;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        @media (min-width: 768px) {
+            .results {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .filters, .results-count {
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MA Pain Management Auth Lookup</h1>
+        <div class="search-container">
+            <input 
+                type="text" 
+                class="search-input" 
+                id="searchInput" 
+                placeholder="Search by payer, procedure, or CPT code..."
+                autocomplete="off"
+            >
+            <button class="clear-btn" id="clearBtn">Clear</button>
+        </div>
+    </div>
+
+    <div class="filters">
+        <div class="filter-group">
+            <div class="filter-label">Filter by Payer</div>
+            <div class="filter-chips" id="payerFilters"></div>
+        </div>
+    </div>
+
+    <div class="results-count" id="resultsCount"></div>
+
+    <div class="results" id="results"></div>
+
+    <script>
+        // Data will be embedded here
+        const AUTH_DATA = [
+        {
+                "payer": "Medicare",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Yes",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "No",
+                "sedation": "Local / Minimal",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "No",
+                "sedation": "Local / MAC",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Yes",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "No",
+                "sedation": "MAC / GA",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "No",
+                "sedation": "MAC / GA",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "No",
+                "sedation": "Local / MAC",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Medicare",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "No",
+                "sedation": "Local / Mod",
+                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Yes",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "Yes",
+                "sedation": "Local / Minimal",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Yes",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "Verify",
+                "sedation": "MAC / GA",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "Yes",
+                "sedation": "MAC / GA",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "Yes",
+                "sedation": "Local / MAC",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "Aetna",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "Verify",
+                "sedation": "Local / Mod",
+                "notes": "eviCore / Availity"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Yes",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "Yes",
+                "sedation": "Local / Minimal",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "Verify",
+                "sedation": "Local",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Verify",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "Verify",
+                "sedation": "MAC / GA",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "Verify",
+                "sedation": "MAC / GA",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "MGB Health Plan (AllWays/MGB)",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "Verify",
+                "sedation": "Local / Mod",
+                "notes": "MGBHP Provider Portal / Code Checker"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Yes",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "Yes",
+                "sedation": "Local / Minimal",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "Yes",
+                "sedation": "Local / MAC",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Yes",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "Yes",
+                "sedation": "MAC / GA",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "Yes",
+                "sedation": "MAC / GA",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "Yes",
+                "sedation": "Local / MAC",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "BCBS of Mass",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "Yes",
+                "sedation": "Local / Mod",
+                "notes": "Authorization Manager / InterQual"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "Verify",
+                "sedation": "Local",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Yes",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "Yes",
+                "sedation": "Local / Minimal",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "Verify",
+                "sedation": "Local",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Yes",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "Yes",
+                "sedation": "MAC / GA",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "Verify",
+                "sedation": "MAC / GA",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "MassHealth",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "Yes",
+                "sedation": "Local / Mod",
+                "notes": "POSC + MCO portal/vendor"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Yes",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "Yes",
+                "sedation": "Local / Minimal",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Verify",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "Verify",
+                "sedation": "MAC / GA",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "Verify",
+                "sedation": "MAC / GA",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Tufts",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "Verify",
+                "sedation": "Local / Mod",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Yes",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "Yes",
+                "sedation": "Local / Minimal",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Verify",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "Verify",
+                "sedation": "MAC / GA",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "Verify",
+                "sedation": "MAC / GA",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "Verify",
+                "sedation": "Local / MAC",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "Harvard Pilgrim",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "Verify",
+                "sedation": "Local / Mod",
+                "notes": "Point32 + Evolent"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Verify",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "Yes",
+                "sedation": "Local / Minimal",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "Yes",
+                "sedation": "Local / MAC",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Yes",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "Yes",
+                "sedation": "MAC / GA",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "Yes",
+                "sedation": "MAC / GA",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "Yes",
+                "sedation": "Local / MAC",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "United",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "Yes",
+                "sedation": "Local / Mod",
+                "notes": "UHC Provider Portal / API / EDI 278"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Simple Joint/Trigger Point Injections",
+                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Facet Joint Interventions (HOPD)",
+                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+                "auth": "Yes",
+                "sedation": "Local / Mod; MAC only if medically necessary",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Epidural Steroid Injections",
+                "cpt_family": "62320-62323 | 64479-64484",
+                "auth": "Yes",
+                "sedation": "Local / Minimal",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Peripheral Nerve Blocks",
+                "cpt_family": "64400-64450 series",
+                "auth": "No",
+                "sedation": "Local",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Neurolytic Blocks",
+                "cpt_family": "64600-64681",
+                "auth": "Yes",
+                "sedation": "Local / MAC",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Spinal Cord Stimulator Implants",
+                "cpt_family": "63650-63664",
+                "auth": "Yes",
+                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Intrathecal Pumps",
+                "cpt_family": "62350-62365",
+                "auth": "Yes",
+                "sedation": "MAC / GA",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Vertebroplasty/Kyphoplasty",
+                "cpt_family": "22510-22515",
+                "auth": "Yes",
+                "sedation": "MAC / GA",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "Sympathetic Blocks",
+                "cpt_family": "64505-64530",
+                "auth": "Yes",
+                "sedation": "Local / MAC",
+                "notes": "eviCore"
+        },
+        {
+                "payer": "Cigna",
+                "procedure_group": "SI Joint Denervation",
+                "cpt_family": "64451",
+                "auth": "Yes",
+                "sedation": "Local / Mod",
+                "notes": "eviCore"
+        }
+];
+
+        let activeFilters = {
+            payer: null,
+            search: ''
+        };
+
+        // Initialize
+        function init() {
+            renderPayerFilters();
+            renderResults();
+            attachEventListeners();
+        }
+
+        function renderPayerFilters() {
+            const payers = [...new Set(AUTH_DATA.map(d => d.payer))];
+            const container = document.getElementById('payerFilters');
+            
+            container.innerHTML = payers.map(payer => 
+                `<div class="chip" data-payer="${payer}">${payer}</div>`
+            ).join('');
+        }
+
+        function attachEventListeners() {
+            // Search input
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', (e) => {
+                activeFilters.search = e.target.value.toLowerCase();
+                renderResults();
+            });
+
+            // Clear button
+            document.getElementById('clearBtn').addEventListener('click', () => {
+                activeFilters = { payer: null, search: '' };
+                searchInput.value = '';
+                document.querySelectorAll('.chip').forEach(chip => chip.classList.remove('active'));
+                renderResults();
+            });
+
+            // Payer filter chips
+            document.getElementById('payerFilters').addEventListener('click', (e) => {
+                if (e.target.classList.contains('chip')) {
+                    const payer = e.target.dataset.payer;
+                    
+                    if (activeFilters.payer === payer) {
+                        activeFilters.payer = null;
+                        e.target.classList.remove('active');
+                    } else {
+                        activeFilters.payer = payer;
+                        document.querySelectorAll('[data-payer]').forEach(chip => 
+                            chip.classList.remove('active')
+                        );
+                        e.target.classList.add('active');
+                    }
+                    renderResults();
+                }
+            });
+        }
+
+        function filterData() {
+            return AUTH_DATA.filter(item => {
+                // Payer filter
+                if (activeFilters.payer && item.payer !== activeFilters.payer) {
+                    return false;
+                }
+
+                // Search filter
+                if (activeFilters.search) {
+                    const searchLower = activeFilters.search;
+                    const searchableText = [
+                        item.payer,
+                        item.procedure_group,
+                        item.cpt_family,
+                        item.sedation,
+                        item.notes
+                    ].filter(Boolean).join(' ').toLowerCase();
+
+                    if (!searchableText.includes(searchLower)) {
+                        return false;
+                    }
+                }
+
+                return true;
+            });
+        }
+
+        function renderResults() {
+            const filteredData = filterData();
+            const resultsContainer = document.getElementById('results');
+            const countContainer = document.getElementById('resultsCount');
+
+            countContainer.textContent = `${filteredData.length} result${filteredData.length !== 1 ? 's' : ''}`;
+
+            if (filteredData.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                        <p>No results found</p>
+                    </div>
+                `;
+                return;
+            }
+
+            resultsContainer.innerHTML = filteredData.map(item => `
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="payer-name">${item.payer}</div>
+                        <div class="procedure-name">${item.procedure_group || 'N/A'}</div>
+                    </div>
+                    <div class="result-body">
+                        <div class="info-row">
+                            <div class="info-label">CPT Codes</div>
+                            <div class="info-value cpt-codes">${item.cpt_family || 'N/A'}</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Prior Auth</div>
+                            <div class="info-value">
+                                <span class="auth-badge auth-${item.auth.toLowerCase()}">${item.auth}</span>
+                            </div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Sedation</div>
+                            <div class="info-value">${item.sedation || 'N/A'}</div>
+                        </div>
+                        ${item.notes ? `<div class="notes">${item.notes}</div>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize on page load
+        init();
+    </script>
+</body>
+</html>
