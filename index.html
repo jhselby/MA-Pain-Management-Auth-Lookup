@@ -1,1364 +1,1016 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MA Pain Management Auth Lookup</title>
-    
-    <!-- iOS App Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="icon.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="icon.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="icon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Auth Lookup">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>MA Pain Management Auth Lookup</title>
+  <meta name="theme-color" content="#1d4ed8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="MA Auth Lookup">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.png">
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --text: #162033;
+      --muted: #5b6472;
+      --line: #dde5f0;
+      --blue: #1d4ed8;
+      --blue-soft: #dbeafe;
+      --warn-bg: #fff7ed;
+      --warn-line: #fdba74;
+      --warn-text: #9a3412;
+      --good-bg: #dcfce7;
+      --good-text: #166534;
+      --med-bg: #fef3c7;
+      --med-text: #854d0e;
+      --low-bg: #fee2e2;
+      --low-text: #991b1b;
+      --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f5;
-            padding-bottom: 60px;
-        }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0px, var(--bg) 260px);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
 
-        .header {
-            background: #2c5f8d;
-            color: white;
-            padding: 16px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+    .app {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 16px 14px 36px;
+    }
 
-        .header h1 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
 
-        .search-container {
-            background: white;
-            border-radius: 8px;
-            padding: 8px;
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
+    .corner-btns {
+      position: sticky;
+      top: 8px;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
+      margin-bottom: 8px;
+    }
 
-        .search-input {
-            flex: 1;
-            border: none;
-            padding: 8px;
-            font-size: 16px;
-            outline: none;
-        }
+    .mini-btn {
+      pointer-events: auto;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.92);
+      color: var(--text);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      font-weight: 800;
+    }
 
-        .clear-btn {
-            background: #e0e0e0;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-        }
+    .mini-icon-btn {
+      width: 34px;
+      min-width: 34px;
+      height: 34px;
+      min-height: 34px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      line-height: 1;
+      color: var(--blue);
+    }
 
-        .filters {
-            background: white;
-            margin: 12px;
-            padding: 12px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
+    .hero {
+      padding: 20px 18px 18px;
+      margin-bottom: 14px;
+    }
 
-        .filter-group {
-            margin-bottom: 12px;
-        }
+    .hero-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
 
-        .filter-group:last-child {
-            margin-bottom: 0;
-        }
+    h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 4.8vw, 2.2rem);
+      line-height: 1.08;
+    }
 
-        .filter-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    .subline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
 
-        .filter-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
+    .layout {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+      margin-top: 14px;
+    }
 
-        .chip {
-            background: #e8f0f7;
-            border: 1px solid #2c5f8d;
-            color: #2c5f8d;
-            padding: 6px 12px;
-            border-radius: 16px;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
+    .controls {
+      padding: 16px;
+    }
 
-        .chip.active {
-            background: #2c5f8d;
-            color: white;
-        }
+    .controls h2, .result h2 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
 
-        .results-count {
-            margin: 12px;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #666;
-        }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.93rem;
+      font-weight: 700;
+    }
 
-        .results {
-            margin: 0 12px;
-        }
+    select, input[type="search"] {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--text);
+      padding: 13px 14px;
+      font-size: 1rem;
+      min-height: 48px;
+      margin-bottom: 12px;
+    }
 
-        .result-card {
-            background: white;
-            margin-bottom: 12px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
+    .search-results {
+      max-height: 220px;
+      overflow-y: auto;
+      margin-top: 6px;
+      margin-bottom: 12px;
+    }
 
-        .result-header {
-            background: #f8f9fa;
-            padding: 12px;
-            border-bottom: 1px solid #e0e0e0;
-        }
+    .search-item {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      margin-bottom: 6px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
 
-        .payer-name {
-            font-weight: 600;
-            color: #2c5f8d;
-            font-size: 15px;
-        }
+    .search-item:hover {
+      background: var(--blue-soft);
+    }
 
-        .procedure-name {
-            font-size: 14px;
-            color: #333;
-            margin-top: 4px;
-        }
+    .helper {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
 
-        .result-body {
-            padding: 12px;
-        }
+    .result {
+      padding: 16px;
+    }
 
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #f0f0f0;
-        }
+    .result-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
 
-        .info-row:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
+    .result-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin: 0;
+    }
 
-        .info-label {
-            font-size: 12px;
-            color: #666;
-            font-weight: 600;
-            min-width: 80px;
-        }
+    .result-sub {
+      color: var(--muted);
+      margin-top: 5px;
+      font-size: 0.94rem;
+      line-height: 1.4;
+    }
 
-        .info-value {
-            font-size: 13px;
-            color: #333;
-            flex: 1;
-            text-align: right;
-        }
+    .confidence-wrap {
+      text-align: center;
+      min-width: 92px;
+    }
 
-        .auth-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-        }
+    .confidence-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
 
-        .auth-yes {
-            background: #fff3cd;
-            color: #856404;
-        }
+    .confidence-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 82px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
 
-        .auth-no {
-            background: #d4edda;
-            color: #155724;
-        }
+    .high { background: var(--good-bg); color: var(--good-text); }
+    .medium, .verify { background: var(--med-bg); color: var(--med-text); }
+    .low { background: var(--low-bg); color: var(--low-text); }
 
-        .cpt-codes {
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            color: #555;
-            line-height: 1.6;
-        }
+    .grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-        .notes {
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            color: #555;
-            line-height: 1.5;
-            margin-top: 10px;
-        }
+    .cell {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfcfe;
+      padding: 13px;
+      min-height: 86px;
+    }
 
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #999;
-        }
+    .cell-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      margin-bottom: 7px;
+      font-weight: 700;
+    }
 
-        .empty-state svg {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 16px;
-            opacity: 0.3;
-        }
+    .cell-value {
+      font-weight: 700;
+      line-height: 1.45;
+      word-break: break-word;
+    }
 
-        /* Disclaimer Modal */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            padding: 20px;
-        }
+    .full {
+      grid-column: 1 / -1;
+    }
 
-        .modal-overlay.hidden {
-            display: none;
-        }
+    .accordion {
+      margin-top: 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+    }
 
-        .modal {
-            background: white;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
+    .accordion-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: #fff;
+      color: var(--text);
+      text-align: left;
+      padding: 14px 16px;
+      border: 0;
+      border-radius: 0;
+      font-size: 1rem;
+      cursor: pointer;
+    }
 
-        .modal-header {
-            background: #ffc107;
-            color: #856404;
-            padding: 20px;
-            border-radius: 12px 12px 0 0;
-            font-weight: 700;
-            font-size: 16px;
-            text-align: center;
-        }
+    .accordion-left {
+      font-weight: 800;
+    }
 
-        .modal-body {
-            padding: 24px;
-            font-size: 14px;
-            line-height: 1.7;
-            color: #333;
-        }
+    .chev {
+      font-size: 1rem;
+      color: var(--muted);
+      transition: transform 0.2s ease;
+    }
 
-        .modal-body p {
-            margin-bottom: 14px;
-        }
+    .accordion.open .chev {
+      transform: rotate(90deg);
+    }
 
-        .modal-body p:last-child {
-            margin-bottom: 0;
-        }
+    .accordion-panel {
+      display: none;
+      border-top: 1px solid var(--line);
+      padding: 14px 16px 16px;
+      background: #fbfcfe;
+    }
 
-        .modal-body strong {
-            color: #2c5f8d;
-        }
+    .accordion.open .accordion-panel {
+      display: block;
+    }
 
-        .modal-footer {
-            padding: 0 24px 24px 24px;
-            display: flex;
-            gap: 12px;
-        }
+    .small {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.52;
+    }
 
-        .modal-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
+    .evidence-card, .source-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      padding: 12px;
+      margin-top: 10px;
+    }
 
-        .modal-btn-primary {
-            background: #2c5f8d;
-            color: white;
-        }
+    .evidence-card h4, .source-card h4 {
+      margin: 0 0 8px;
+      font-size: 0.98rem;
+    }
 
-        .modal-btn-primary:active {
-            background: #1e4563;
-        }
+    .status {
+      display: none;
+      margin-bottom: 10px;
+      border-radius: 14px;
+      padding: 12px 13px;
+      border: 1px solid var(--warn-line);
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      font-size: 0.93rem;
+      line-height: 1.45;
+    }
 
-        /* Disclaimer Footer */
-        .disclaimer-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #fff9e6;
-            border-top: 2px solid #ffc107;
-            padding: 8px 12px;
-            font-size: 10px;
-            line-height: 1.4;
-            color: #856404;
-            z-index: 99;
-            box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-        }
+    .footer-warning {
+      margin-top: 12px;
+      font-size: 0.88rem;
+      line-height: 1.52;
+      color: var(--muted);
+    }
 
-        .disclaimer-footer strong {
-            font-size: 10px;
-            font-weight: 700;
-            margin-right: 4px;
-        }
+    .notice-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 1000;
+    }
 
-        .footer-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
+    .notice-modal {
+      width: min(680px, 100%);
+      background: #fff;
+      border: 1px solid var(--warn-line);
+      border-radius: 22px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22);
+      overflow: hidden;
+    }
 
-        .footer-text {
-            flex: 1;
-            min-width: 200px;
-        }
+    .notice-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      background: var(--warn-bg);
+      border-bottom: 1px solid var(--warn-line);
+      color: var(--warn-text);
+    }
 
-        .footer-links {
-            display: flex;
-            gap: 12px;
-            flex-shrink: 0;
-        }
+    .notice-title {
+      font-weight: 900;
+      font-size: 1.05rem;
+    }
 
-        .footer-link {
-            color: #2c5f8d;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 10px;
-            white-space: nowrap;
-        }
+    .close-x, .primary {
+      border: 1px solid var(--warn-line);
+      background: #fff;
+      color: var(--warn-text);
+      cursor: pointer;
+      min-height: 34px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
 
-        .footer-link:active {
-            color: #1e4563;
-        }
+    .close-x {
+      min-width: 34px;
+      padding: 0;
+      font-size: 1rem;
+      line-height: 1;
+    }
 
-        /* Refresh button in header */
-        .refresh-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            color: white;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+    .primary {
+      padding: 10px 14px;
+    }
 
-        .refresh-btn:active {
-            background: rgba(255, 255, 255, 0.3);
-        }
+    .notice-body {
+      padding: 16px 18px 18px;
+    }
 
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
+    .notice-body p {
+      margin: 0 0 10px;
+      line-height: 1.56;
+      font-size: 0.95rem;
+    }
 
-        @media (min-width: 768px) {
-            .results {
-                max-width: 800px;
-                margin: 0 auto;
-            }
+    .sticky-report {
+      position: sticky;
+      bottom: 10px;
+      z-index: 25;
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+      padding-bottom: max(4px, env(safe-area-inset-bottom));
+    }
 
-            .filters, .results-count, .disclaimer-footer {
-                max-width: 800px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-    </style>
+    .sticky-report-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      text-align: center;
+      border: 1px solid var(--warn-line);
+      background: rgba(255,247,237,0.96);
+      color: var(--warn-text);
+      border-radius: 999px;
+      padding: 9px 14px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      font-size: 0.9rem;
+    }
+
+    .sticky-links {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .pill-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--warn-line);
+      background: #fff;
+      color: var(--warn-text);
+      text-decoration: none;
+      font-weight: 700;
+      min-height: 28px;
+      font-size: 0.82rem;
+    }
+
+    .pill-link:hover {
+      background: #fff7ed;
+    }
+
+    a { color: var(--blue); }
+    .hidden { display: none !important; }
+
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero-top, .result-head { flex-direction: column; }
+      .confidence-wrap { text-align: left; min-width: 0; }
+    }
+
+    @media (min-width: 900px) {
+      .layout {
+        grid-template-columns: 360px 1fr;
+        align-items: start;
+      }
+      .app {
+        padding-top: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-top">
-            <h1>MA Pain Management Auth Lookup</h1>
-            <button class="refresh-btn" id="refreshBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
-                </svg>
-                Refresh
+  <div class="app">
+    <div class="corner-btns" style="justify-content:flex-end;">
+      <button class="mini-btn mini-icon-btn" id="refreshBtn" type="button" aria-label="Refresh data" title="Refresh data">↻</button>
+    </div>
+
+    <section class="card hero">
+      <div class="hero-top">
+        <div>
+          <h1>MA Pain Management Auth Lookup</h1>
+          <div class="subline" id="lastUpdatedLine">Last updated: loading...</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="notice-overlay" id="noticeOverlay" aria-hidden="false">
+      <div class="notice-modal" role="dialog" aria-modal="true" aria-labelledby="noticeTitle">
+        <div class="notice-head">
+          <div class="notice-title" id="noticeTitle">Important Notice</div>
+          <button class="close-x" id="dismissNoticeBtn" type="button" aria-label="Dismiss notice">×</button>
+        </div>
+        <div class="notice-body">
+          <p>
+            This tool is for reference purposes only. Prior authorization requirements change frequently and vary by patient insurance plan, site of service, medical necessity criteria, and individual payer policies. The information presented here was compiled from publicly available payer sources and is subject to change without notice.
+          </p>
+          <p>
+            You must independently verify all authorization requirements directly with the applicable payer before scheduling or performing any procedure. Use of this tool does not guarantee accuracy of authorization status, coverage determinations, or reimbursement. The creators of this tool assume no liability for billing errors, claim denials, or other consequences resulting from reliance on this information.
+          </p>
+          <button class="primary" id="acknowledgeNoticeBtn" type="button">I Understand</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <section class="card controls">
+        <h2>Lookup</h2>
+        <div class="status" id="statusBanner"></div>
+
+        <label for="payerSelect">Insurance / payer</label>
+        <select id="payerSelect">
+          <option value="">Select a payer</option>
+        </select>
+
+        <label for="searchBox">Search Procedure or Code</label>
+        <input id="searchBox" type="search" placeholder="Type a procedure name or CPT family">
+        <div id="searchResults" class="search-results"></div>
+
+        <label for="procedureSelect">Procedure</label>
+        <select id="procedureSelect">
+          <option value="">Select a procedure</option>
+        </select>
+
+        <div class="helper">
+          Pick the insurance first. You can either type to search and click a live result, or use the full procedure dropdown. If you choose from the dropdown, that selection wins.
+        </div>
+      </section>
+
+      <section class="card result">
+        <div id="emptyState">
+          <h2>Choose a payer and procedure</h2>
+          <div class="helper">
+            The result will show authorization status, sedation type, booking caveats, confidence, last verified date, and expandable evidence/source details.
+          </div>
+        </div>
+
+        <div id="resultState" class="hidden">
+          <div class="result-head">
+            <div>
+              <div class="result-title" id="resultTitle"></div>
+              <div class="result-sub" id="resultSubtitle"></div>
+            </div>
+            <div class="confidence-wrap">
+              <div class="confidence-label">Confidence</div>
+              <div class="confidence-pill verify" id="confidencePill">Verify</div>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="cell">
+              <div class="cell-label">Authorization</div>
+              <div class="cell-value" id="authValue"></div>
+            </div>
+            <div class="cell">
+              <div class="cell-label">Sedation type</div>
+              <div class="cell-value" id="sedationValue"></div>
+            </div>
+            <div class="cell">
+              <div class="cell-label">Auth vendor / entry point</div>
+              <div class="cell-value" id="vendorValue"></div>
+            </div>
+            <div class="cell">
+              <div class="cell-label">Last verified</div>
+              <div class="cell-value" id="verifiedValue"></div>
+            </div>
+            <div class="cell">
+              <div class="cell-label">CPT family</div>
+              <div class="cell-value" id="cptValue"></div>
+            </div>
+            <div class="cell">
+              <div class="cell-label">State scope</div>
+              <div class="cell-value" id="scopeValue"></div>
+            </div>
+            <div class="cell full">
+              <div class="cell-label">Do not book / not covered / booking note</div>
+              <div class="cell-value" id="bookingNote"></div>
+            </div>
+          </div>
+
+          <div class="accordion" id="implementationAccordion">
+            <button class="accordion-btn" type="button" data-target="implementationPanel" aria-expanded="false">
+              <span class="accordion-left">Implementation note</span>
+              <span class="chev">▶</span>
             </button>
+            <div class="accordion-panel" id="implementationPanel"></div>
+          </div>
+
+          <div class="accordion" id="evidenceAccordion">
+            <button class="accordion-btn" type="button" data-target="evidencePanel" aria-expanded="false">
+              <span class="accordion-left">Evidence details</span>
+              <span class="chev">▶</span>
+            </button>
+            <div class="accordion-panel" id="evidencePanel"></div>
+          </div>
+
+          <div class="accordion" id="sourcesAccordion">
+            <button class="accordion-btn" type="button" data-target="sourcesPanel" aria-expanded="false">
+              <span class="accordion-left">Source register entries</span>
+              <span class="chev">▶</span>
+            </button>
+            <div class="accordion-panel" id="sourcesPanel"></div>
+          </div>
+
+          <div class="footer-warning" id="globalWarning"></div>
         </div>
-        <div class="search-container">
-            <input 
-                type="text" 
-                class="search-input" 
-                id="searchInput" 
-                placeholder="Search by payer, procedure, or CPT code..."
-                autocomplete="off"
-            >
-            <button class="clear-btn" id="clearBtn">Clear</button>
-        </div>
+      </section>
     </div>
 
-    <div class="filters">
-        <div class="filter-group">
-            <div class="filter-label">Filter by Payer</div>
-            <div class="filter-chips" id="payerFilters"></div>
+    <div class="sticky-report">
+      <div class="sticky-report-inner">
+        <span>⚠️ Reference only. Verify all requirements with payer before scheduling.</span>
+        <div class="sticky-links">
+          <a class="pill-link" href="mailto:85697934+jhselby@users.noreply.github.com?subject=Prior%20Auth%20Lookup%20Error%20Report&body=Please%20describe%20the%20error:%0A%0APayer:%20%0AProcedure:%20%0AWhat%27s%20incorrect:%20">Report Error</a>
+          <a class="pill-link" href="#" id="footerDisclaimerLink">Full Disclaimer</a>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="results-count" id="resultsCount"></div>
+  <script>
+    const state = {
+      rules: null,
+      evidence: [],
+      sources: [],
+      metadata: null,
+      cacheBust: Date.now()
+    };
 
-    <div class="results" id="results"></div>
+    const els = {
+      statusBanner: document.getElementById("statusBanner"),
+      refreshBtn: document.getElementById("refreshBtn"),
+      payerSelect: document.getElementById("payerSelect"),
+      searchBox: document.getElementById("searchBox"),
+      procedureSelect: document.getElementById("procedureSelect"),
+      searchResults: document.getElementById("searchResults"),
+      emptyState: document.getElementById("emptyState"),
+      resultState: document.getElementById("resultState"),
+      resultTitle: document.getElementById("resultTitle"),
+      resultSubtitle: document.getElementById("resultSubtitle"),
+      confidencePill: document.getElementById("confidencePill"),
+      authValue: document.getElementById("authValue"),
+      sedationValue: document.getElementById("sedationValue"),
+      vendorValue: document.getElementById("vendorValue"),
+      verifiedValue: document.getElementById("verifiedValue"),
+      cptValue: document.getElementById("cptValue"),
+      scopeValue: document.getElementById("scopeValue"),
+      bookingNote: document.getElementById("bookingNote"),
+      implementationPanel: document.getElementById("implementationPanel"),
+      evidencePanel: document.getElementById("evidencePanel"),
+      sourcesPanel: document.getElementById("sourcesPanel"),
+      lastUpdatedLine: document.getElementById("lastUpdatedLine"),
+      globalWarning: document.getElementById("globalWarning"),
+      noticeOverlay: document.getElementById("noticeOverlay"),
+      dismissNoticeBtn: document.getElementById("dismissNoticeBtn"),
+      acknowledgeNoticeBtn: document.getElementById("acknowledgeNoticeBtn"),
+      footerDisclaimerLink: document.getElementById("footerDisclaimerLink")
+    };
 
-    <!-- Disclaimer Modal -->
-    <div class="modal-overlay hidden" id="disclaimerModal">
-        <div class="modal">
-            <div class="modal-header">
-                ⚠️ Important Notice
-            </div>
-            <div class="modal-body">
-                <p><strong>This tool is for reference purposes only.</strong></p>
-                <p>Prior authorization requirements change frequently and vary by patient insurance plan, site of service, medical necessity criteria, and individual payer policies. The information presented here was compiled from publicly available payer sources and is subject to change without notice.</p>
-                <p><strong>You must independently verify all authorization requirements directly with the applicable payer before scheduling or performing any procedure.</strong></p>
-                <p>Use of this tool does not guarantee accuracy of authorization status, coverage determinations, or reimbursement. The creators of this tool assume no liability for billing errors, claim denials, or other consequences resulting from reliance on this information.</p>
-                <p style="font-size: 12px; color: #666; margin-top: 16px;">Last updated: March 2026</p>
-            </div>
-            <div class="modal-footer">
-                <button class="modal-btn modal-btn-primary" id="acceptDisclaimer">I Understand</button>
-            </div>
-        </div>
-    </div>
+    function qsWithBust(path) {
+      const sep = path.includes("?") ? "&" : "?";
+      return `${path}${sep}v=${state.cacheBust}`;
+    }
 
-    <!-- Disclaimer Footer -->
-    <div class="disclaimer-footer">
-        <div class="footer-content">
-            <div class="footer-text">
-                <strong>⚠️</strong>Reference only. Verify all requirements with payer before scheduling.
-            </div>
-            <div class="footer-links">
-                <a href="mailto:85697934+jhselby@users.noreply.github.com?subject=Auth%20Lookup%20Error%20Report&body=Please%20describe%20the%20error%3A%0A%0APayer%3A%20%0AProcedure%3A%20%0AWhat's%20incorrect%3A%20" class="footer-link">Report Error</a>
-                <a href="#" class="footer-link" id="showDisclaimerLink">Full Disclaimer</a>
-            </div>
-        </div>
-    </div>
+    async function loadJson(path) {
+      const response = await fetch(qsWithBust(path), {
+        cache: "no-store",
+        headers: { "Cache-Control": "no-cache" }
+      });
+      if (!response.ok) throw new Error(`Failed to load ${path}: ${response.status}`);
+      return response.json();
+    }
 
-    <script>
-        // Data will be embedded here
-        const AUTH_DATA = [
-        {
-                "payer": "Medicare",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Yes",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "No",
-                "sedation": "Local / Minimal",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "No",
-                "sedation": "Local / MAC",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Yes",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "No",
-                "sedation": "MAC / GA",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "No",
-                "sedation": "MAC / GA",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "No",
-                "sedation": "Local / MAC",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Medicare",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "No",
-                "sedation": "Local / Mod",
-                "notes": "CMS OPD PA (limited HOPD use) / LCD-NCD"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Yes",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "Yes",
-                "sedation": "Local / Minimal",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Yes",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "Verify",
-                "sedation": "MAC / GA",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "Yes",
-                "sedation": "MAC / GA",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "Yes",
-                "sedation": "Local / MAC",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "Aetna",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "Verify",
-                "sedation": "Local / Mod",
-                "notes": "eviCore / Availity"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Yes",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "Yes",
-                "sedation": "Local / Minimal",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "Verify",
-                "sedation": "Local",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Verify",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "Verify",
-                "sedation": "MAC / GA",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "Verify",
-                "sedation": "MAC / GA",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "MGB Health Plan (AllWays/MGB)",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "Verify",
-                "sedation": "Local / Mod",
-                "notes": "MGBHP Provider Portal / Code Checker"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Yes",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "Yes",
-                "sedation": "Local / Minimal",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "Yes",
-                "sedation": "Local / MAC",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Yes",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "Yes",
-                "sedation": "MAC / GA",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "Yes",
-                "sedation": "MAC / GA",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "Yes",
-                "sedation": "Local / MAC",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "BCBS of Mass",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "Yes",
-                "sedation": "Local / Mod",
-                "notes": "Authorization Manager / InterQual"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "Verify",
-                "sedation": "Local",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Yes",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "Yes",
-                "sedation": "Local / Minimal",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "Verify",
-                "sedation": "Local",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Yes",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "Yes",
-                "sedation": "MAC / GA",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "Verify",
-                "sedation": "MAC / GA",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "MassHealth",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "Yes",
-                "sedation": "Local / Mod",
-                "notes": "POSC + MCO portal/vendor"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Yes",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "Yes",
-                "sedation": "Local / Minimal",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Verify",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "Verify",
-                "sedation": "MAC / GA",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "Verify",
-                "sedation": "MAC / GA",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Tufts",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "Verify",
-                "sedation": "Local / Mod",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Yes",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "Yes",
-                "sedation": "Local / Minimal",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Verify",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "Verify",
-                "sedation": "MAC / GA",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "Verify",
-                "sedation": "MAC / GA",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "Verify",
-                "sedation": "Local / MAC",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "Harvard Pilgrim",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "Verify",
-                "sedation": "Local / Mod",
-                "notes": "Point32 + Evolent"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Verify",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "Yes",
-                "sedation": "Local / Minimal",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "Yes",
-                "sedation": "Local / MAC",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Yes",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "Yes",
-                "sedation": "MAC / GA",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "Yes",
-                "sedation": "MAC / GA",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "Yes",
-                "sedation": "Local / MAC",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "United",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "Yes",
-                "sedation": "Local / Mod",
-                "notes": "UHC Provider Portal / API / EDI 278"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Simple Joint/Trigger Point Injections",
-                "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Facet Joint Interventions (HOPD)",
-                "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
-                "auth": "Yes",
-                "sedation": "Local / Mod; MAC only if medically necessary",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Epidural Steroid Injections",
-                "cpt_family": "62320-62323 | 64479-64484",
-                "auth": "Yes",
-                "sedation": "Local / Minimal",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Peripheral Nerve Blocks",
-                "cpt_family": "64400-64450 series",
-                "auth": "No",
-                "sedation": "Local",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Neurolytic Blocks",
-                "cpt_family": "64600-64681",
-                "auth": "Yes",
-                "sedation": "Local / MAC",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Spinal Cord Stimulator Implants",
-                "cpt_family": "63650-63664",
-                "auth": "Yes",
-                "sedation": "Trial: MAC/CON | Implant: MAC/GA",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Intrathecal Pumps",
-                "cpt_family": "62350-62365",
-                "auth": "Yes",
-                "sedation": "MAC / GA",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Vertebroplasty/Kyphoplasty",
-                "cpt_family": "22510-22515",
-                "auth": "Yes",
-                "sedation": "MAC / GA",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "Sympathetic Blocks",
-                "cpt_family": "64505-64530",
-                "auth": "Yes",
-                "sedation": "Local / MAC",
-                "notes": "eviCore"
-        },
-        {
-                "payer": "Cigna",
-                "procedure_group": "SI Joint Denervation",
-                "cpt_family": "64451",
-                "auth": "Yes",
-                "sedation": "Local / Mod",
-                "notes": "eviCore"
-        }
-];
+    function showStatus(message) {
+      els.statusBanner.textContent = message;
+      els.statusBanner.style.display = "block";
+    }
 
-        let activeFilters = {
-            payer: null,
-            search: ''
+    function clearStatus() {
+      els.statusBanner.textContent = "";
+      els.statusBanner.style.display = "none";
+    }
+
+    function formatDate(value) {
+      if (!value) return "Not provided";
+      const d = new Date(value);
+      if (Number.isNaN(d.getTime())) return value;
+      return d.toLocaleString();
+    }
+
+    function confidenceClass(conf) {
+      const v = (conf || "").toLowerCase();
+      if (v.includes("high")) return "high";
+      if (v.includes("low")) return "low";
+      if (v.includes("medium")) return "medium";
+      return "verify";
+    }
+
+    function payerProcedureEntries() {
+      if (!state.rules || !state.rules.procedures) return [];
+      return Object.entries(state.rules.procedures);
+    }
+
+    function filteredProcedures() {
+      const payer = els.payerSelect.value;
+      return payerProcedureEntries()
+        .filter(([_, proc]) => !payer || !!proc.payers[payer])
+        .sort((a, b) => a[1].procedure_group.localeCompare(b[1].procedure_group));
+    }
+
+    function populatePayers() {
+      const payers = [...(state.rules?.payers || [])].sort();
+      els.payerSelect.innerHTML = '<option value="">Select a payer</option>';
+      for (const payer of payers) {
+        const option = document.createElement("option");
+        option.value = payer;
+        option.textContent = payer;
+        els.payerSelect.appendChild(option);
+      }
+    }
+
+    function populateProcedures(preserve = false) {
+      const current = preserve ? els.procedureSelect.value : "";
+      const items = filteredProcedures();
+      els.procedureSelect.innerHTML = '<option value="">Select a procedure</option>';
+      for (const [key, proc] of items) {
+        const option = document.createElement("option");
+        option.value = key;
+        option.textContent = proc.procedure_group;
+        els.procedureSelect.appendChild(option);
+      }
+      if (preserve && items.some(([key]) => key === current)) {
+        els.procedureSelect.value = current;
+      }
+    }
+
+    function renderSearchResults() {
+      els.searchResults.innerHTML = "";
+      const payer = els.payerSelect.value;
+      const query = els.searchBox.value.trim().toLowerCase();
+      if (!payer || !query) return;
+
+      const matches = Object.entries(state.rules.procedures)
+        .filter(([_, p]) => !!p.payers[payer])
+        .filter(([_, p]) =>
+          (p.procedure_group || "").toLowerCase().includes(query) ||
+          (p.cpt_family || "").toLowerCase().includes(query)
+        )
+        .sort((a, b) => a[1].procedure_group.localeCompare(b[1].procedure_group))
+        .slice(0, 12);
+
+      if (!matches.length) {
+        els.searchResults.innerHTML = '<div class="small">No matches</div>';
+        return;
+      }
+
+      for (const [key, proc] of matches) {
+        const div = document.createElement("div");
+        div.className = "search-item";
+        const cpt = proc.cpt_family ? `<div class="small">${proc.cpt_family}</div>` : "";
+        div.innerHTML = `<div>${proc.procedure_group}</div>${cpt}`;
+        div.onclick = () => {
+          els.procedureSelect.value = key;
+          els.searchResults.innerHTML = "";
+          renderResult();
         };
+        els.searchResults.appendChild(div);
+      }
+    }
 
-        // Initialize
-        function init() {
-            renderPayerFilters();
-            renderResults();
-            attachEventListeners();
-        }
+    function renderEvidence(evidenceRows) {
+      els.evidencePanel.innerHTML = "";
+      if (!evidenceRows.length) {
+        els.evidencePanel.innerHTML = '<div class="small">No linked evidence rows found.</div>';
+        return;
+      }
+      for (const item of evidenceRows) {
+        const urls = (item.source_urls || []).map(url => `<div class="small"><a href="${url}" target="_blank" rel="noreferrer">${url}</a></div>`).join("");
+        const div = document.createElement("div");
+        div.className = "evidence-card";
+        div.innerHTML = `
+          <h4>${item.evidence_id || "Evidence"}</h4>
+          <div class="small"><strong>Validated field:</strong> ${item.field_validated || "Not provided"}</div>
+          <div class="small"><strong>Matrix value:</strong> ${item.value_in_matrix || "Not provided"}</div>
+          <div class="small"><strong>Verification method:</strong> ${item.verification_method || "Not provided"}</div>
+          <div class="small"><strong>Rationale:</strong> ${item.rationale_summary || "Not provided"}</div>
+          <div class="small"><strong>Public limitations:</strong> ${item.public_limitations || "Not provided"}</div>
+          <div class="small"><strong>Reviewer action:</strong> ${item.recommended_reviewer_action || "Not provided"}</div>
+          <div class="small"><strong>Last verified:</strong> ${item.last_verified || "Not provided"}</div>
+          ${urls}
+        `;
+        els.evidencePanel.appendChild(div);
+      }
+    }
 
-        function renderPayerFilters() {
-            const payers = [...new Set(AUTH_DATA.map(d => d.payer))];
-            const container = document.getElementById('payerFilters');
-            
-            container.innerHTML = payers.map(payer => 
-                `<div class="chip" data-payer="${payer}">${payer}</div>`
-            ).join('');
-        }
+    function renderSources(sourceRows) {
+      els.sourcesPanel.innerHTML = "";
+      if (!sourceRows.length) {
+        els.sourcesPanel.innerHTML = '<div class="small">No linked source register entries found.</div>';
+        return;
+      }
+      for (const item of sourceRows) {
+        const div = document.createElement("div");
+        div.className = "source-card";
+        div.innerHTML = `
+          <h4>${item.source_id || "Source"}${item.source_type ? ` - ${item.source_type}` : ""}</h4>
+          <div class="small"><strong>Payer group:</strong> ${item.payer_group || "Not provided"}</div>
+          <div class="small"><strong>Supports:</strong> ${item.what_it_supports || "Not provided"}</div>
+          <div class="small"><strong>Owner:</strong> ${item.source_owner || "Not provided"}</div>
+          <div class="small"><strong>Level:</strong> ${item.source_level || "Not provided"}</div>
+          <div class="small"><strong>Update cycle:</strong> ${item.expected_update_cycle || "Not provided"}</div>
+          <div class="small"><strong>Verification use:</strong> ${item.recommended_verification_use || "Not provided"}</div>
+          <div class="small">${item.url ? `<a href="${item.url}" target="_blank" rel="noreferrer">${item.url}</a>` : "No URL provided"}</div>
+        `;
+        els.sourcesPanel.appendChild(div);
+      }
+    }
 
-        function attachEventListeners() {
-            // Search input
-            const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', (e) => {
-                activeFilters.search = e.target.value.toLowerCase();
-                renderResults();
-            });
+    function openAccordionsClosed() {
+      document.querySelectorAll(".accordion").forEach(acc => acc.classList.remove("open"));
+      document.querySelectorAll(".accordion-btn").forEach(btn => btn.setAttribute("aria-expanded", "false"));
+    }
 
-            // Clear button
-            document.getElementById('clearBtn').addEventListener('click', () => {
-                activeFilters = { payer: null, search: '' };
-                searchInput.value = '';
-                document.querySelectorAll('.chip').forEach(chip => chip.classList.remove('active'));
-                renderResults();
-            });
+    function renderResult() {
+      const payer = els.payerSelect.value;
+      const procKey = els.procedureSelect.value;
+      if (!payer || !procKey) {
+        els.resultState.classList.add("hidden");
+        els.emptyState.classList.remove("hidden");
+        return;
+      }
 
-            // Payer filter chips
-            document.getElementById('payerFilters').addEventListener('click', (e) => {
-                if (e.target.classList.contains('chip')) {
-                    const payer = e.target.dataset.payer;
-                    
-                    if (activeFilters.payer === payer) {
-                        activeFilters.payer = null;
-                        e.target.classList.remove('active');
-                    } else {
-                        activeFilters.payer = payer;
-                        document.querySelectorAll('[data-payer]').forEach(chip => 
-                            chip.classList.remove('active')
-                        );
-                        e.target.classList.add('active');
-                    }
-                    renderResults();
-                }
-            });
-        }
+      const proc = state.rules.procedures[procKey];
+      const rule = proc?.payers?.[payer];
+      if (!rule) {
+        showStatus("No rule found for that payer/procedure combination in the current JSON.");
+        els.resultState.classList.add("hidden");
+        els.emptyState.classList.remove("hidden");
+        return;
+      }
 
-        function filterData() {
-            return AUTH_DATA.filter(item => {
-                // Payer filter
-                if (activeFilters.payer && item.payer !== activeFilters.payer) {
-                    return false;
-                }
+      clearStatus();
+      els.emptyState.classList.add("hidden");
+      els.resultState.classList.remove("hidden");
 
-                // Search filter
-                if (activeFilters.search) {
-                    const searchLower = activeFilters.search;
-                    const searchableText = [
-                        item.payer,
-                        item.procedure_group,
-                        item.cpt_family,
-                        item.sedation,
-                        item.notes
-                    ].filter(Boolean).join(' ').toLowerCase();
+      els.resultTitle.textContent = `${payer} — ${proc.procedure_group}`;
+      els.resultSubtitle.textContent = proc.cpt_family || "No CPT family listed";
+      els.authValue.textContent = rule.auth || "Not provided";
+      els.sedationValue.textContent = rule.sedation_type || "Not provided";
+      els.vendorValue.textContent = rule.auth_vendor || "Not provided";
+      els.verifiedValue.textContent = rule.last_verified || "Not provided";
+      els.cptValue.textContent = proc.cpt_family || "Not provided";
+      els.scopeValue.textContent = rule.state_scope || "Not provided";
+      els.bookingNote.textContent = rule.do_not_book || "Not provided";
+      els.implementationPanel.textContent = rule.implementation_note || "No implementation note provided.";
 
-                    if (!searchableText.includes(searchLower)) {
-                        return false;
-                    }
-                }
+      const conf = rule.confidence || "Verify";
+      els.confidencePill.textContent = conf;
+      els.confidencePill.className = `confidence-pill ${confidenceClass(conf)}`;
 
-                return true;
-            });
-        }
+      const evidenceRows = state.evidence.filter(e => (rule.evidence_ids || []).includes(e.evidence_id));
+      renderEvidence(evidenceRows);
 
-        function renderResults() {
-            const filteredData = filterData();
-            const resultsContainer = document.getElementById('results');
-            const countContainer = document.getElementById('resultsCount');
+      const sourceRows = state.sources.filter(s => (rule.source_ids || []).includes(s.source_id));
+      renderSources(sourceRows);
 
-            countContainer.textContent = `${filteredData.length} result${filteredData.length !== 1 ? 's' : ''}`;
+      openAccordionsClosed();
+    }
 
-            if (filteredData.length === 0) {
-                resultsContainer.innerHTML = `
-                    <div class="empty-state">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                        </svg>
-                        <p>No results found</p>
-                    </div>
-                `;
-                return;
-            }
+    async function loadAllData() {
+      const [rules, evidence, sources, metadata] = await Promise.all([
+        loadJson("rules.json"),
+        loadJson("evidence_map.json"),
+        loadJson("sources.json"),
+        loadJson("metadata.json")
+      ]);
+      state.rules = rules;
+      state.evidence = evidence;
+      state.sources = sources;
+      state.metadata = metadata;
+    }
 
-            resultsContainer.innerHTML = filteredData.map(item => `
-                <div class="result-card">
-                    <div class="result-header">
-                        <div class="payer-name">${item.payer}</div>
-                        <div class="procedure-name">${item.procedure_group || 'N/A'}</div>
-                    </div>
-                    <div class="result-body">
-                        <div class="info-row">
-                            <div class="info-label">CPT Codes</div>
-                            <div class="info-value cpt-codes">${item.cpt_family || 'N/A'}</div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label">Prior Auth</div>
-                            <div class="info-value">
-                                <span class="auth-badge auth-${item.auth.toLowerCase()}">${item.auth}</span>
-                            </div>
-                        </div>
-                        <div class="info-row">
-                            <div class="info-label">Sedation</div>
-                            <div class="info-value">${item.sedation || 'N/A'}</div>
-                        </div>
-                        ${item.notes ? `<div class="notes">${item.notes}</div>` : ''}
-                    </div>
-                </div>
-            `).join('');
-        }
+    async function refreshData() {
+      try {
+        state.cacheBust = Date.now();
+        els.payerSelect.value = "";
+        els.searchBox.value = "";
+        els.searchResults.innerHTML = "";
+        showStatus("Refreshing data...");
+        await loadAllData();
+        populatePayers();
+        populateProcedures(false);
+        els.procedureSelect.value = "";
+        els.lastUpdatedLine.textContent = `Last updated: ${formatDate(state.metadata.generated_at)}`;
+        els.globalWarning.textContent = state.metadata.warning || "";
+        clearStatus();
+        els.resultState.classList.add("hidden");
+        els.emptyState.classList.remove("hidden");
+      } catch (err) {
+        showStatus(`Could not load JSON files. ${err.message}`);
+      }
+    }
 
-        // Initialize on page load
-        init();
+    function dismissNotice() {
+      els.noticeOverlay.classList.add("hidden");
+      els.noticeOverlay.setAttribute("aria-hidden", "true");
+      try {
+        localStorage.setItem("ma-pain-auth-notice-dismissed", "1");
+      } catch (err) {}
+    }
 
-        // Disclaimer modal management
-        const disclaimerModal = document.getElementById('disclaimerModal');
-        const acceptBtn = document.getElementById('acceptDisclaimer');
-        const showDisclaimerLink = document.getElementById('showDisclaimerLink');
+    function openNotice() {
+      els.noticeOverlay.classList.remove("hidden");
+      els.noticeOverlay.setAttribute("aria-hidden", "false");
+      try {
+        localStorage.removeItem("ma-pain-auth-notice-dismissed");
+      } catch (err) {}
+    }
 
-        // Check if user has already accepted disclaimer
-        if (!localStorage.getItem('disclaimerAccepted')) {
-            disclaimerModal.classList.remove('hidden');
-        } else {
-            disclaimerModal.classList.add('hidden');
-        }
+    function maybeShowNotice() {
+      let dismissed = false;
+      try {
+        dismissed = localStorage.getItem("ma-pain-auth-notice-dismissed") === "1";
+      } catch (err) {}
+      if (dismissed) {
+        els.noticeOverlay.classList.add("hidden");
+        els.noticeOverlay.setAttribute("aria-hidden", "true");
+      } else {
+        els.noticeOverlay.classList.remove("hidden");
+        els.noticeOverlay.setAttribute("aria-hidden", "false");
+      }
+    }
 
-        acceptBtn.addEventListener('click', () => {
-            localStorage.setItem('disclaimerAccepted', 'true');
-            disclaimerModal.classList.add('hidden');
-        });
+    function clearAll() {
+      els.payerSelect.value = "";
+      els.searchBox.value = "";
+      els.searchResults.innerHTML = "";
+      populateProcedures(false);
+      clearStatus();
+      els.resultState.classList.add("hidden");
+      els.emptyState.classList.remove("hidden");
+      document.querySelectorAll(".accordion").forEach(acc => acc.classList.remove("open"));
+      els.procedureSelect.value = "";
+    }
 
-        showDisclaimerLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            disclaimerModal.classList.remove('hidden');
-        });
+    function toggleAccordion(btn) {
+      const panelId = btn.getAttribute("data-target");
+      const parent = btn.closest(".accordion");
+      const isOpen = parent.classList.contains("open");
+      parent.classList.toggle("open", !isOpen);
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      const panel = document.getElementById(panelId);
+      panel.style.display = !isOpen ? "block" : "none";
+    }
 
-        // Refresh button
-        document.getElementById('refreshBtn').addEventListener('click', () => {
-            location.reload(true); // Hard reload to bypass cache
-        });
-    </script>
+    document.querySelectorAll(".accordion-btn").forEach(btn => {
+      btn.addEventListener("click", () => toggleAccordion(btn));
+    });
+
+    els.payerSelect.addEventListener("change", () => {
+      populateProcedures(false);
+      els.searchResults.innerHTML = "";
+      els.searchBox.value = "";
+      renderResult();
+    });
+
+    els.searchBox.addEventListener("input", renderSearchResults);
+
+    els.procedureSelect.addEventListener("change", () => {
+      els.searchResults.innerHTML = "";
+      renderResult();
+    });
+
+    els.refreshBtn.addEventListener("click", refreshData);
+    els.dismissNoticeBtn.addEventListener("click", dismissNotice);
+    els.acknowledgeNoticeBtn.addEventListener("click", dismissNotice);
+    els.footerDisclaimerLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      openNotice();
+    });
+    els.noticeOverlay.addEventListener("click", (e) => {
+      if (e.target === els.noticeOverlay) dismissNotice();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !els.noticeOverlay.classList.contains("hidden")) dismissNotice();
+    });
+
+    maybeShowNotice();
+    refreshData();
+  </script>
 </body>
 </html>

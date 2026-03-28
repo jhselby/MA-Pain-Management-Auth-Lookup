@@ -1,0 +1,16 @@
+{
+  "dataset_name": "MA Pain Management Authorization Matrix",
+  "generated_at": "2026-03-28T21:53:04.755962+00:00",
+  "generated_from": "Insurance_Authorization_Matrix_MA_Auditable_v3.xlsx",
+  "workbook_expected_name_for_local_edits": "data.xlsx",
+  "coverage_scope": "Massachusetts pain management payers",
+  "sheets_used": [
+    "Evidence_Map",
+    "Normalized_Data",
+    "Source_Register"
+  ],
+  "payer_count": 9,
+  "procedure_count": 10,
+  "warning": "Use as decision support. Always verify member/product/site-of-service details in the payer or delegated-vendor portal before booking.",
+  "local_testing_tip": "If index.html is opened directly and JSON fails to load, run 'python -m http.server' in this folder and open http://localhost:8000."
+}

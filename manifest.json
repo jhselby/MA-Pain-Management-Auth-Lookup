@@ -1,0 +1,17 @@
+{
+  "name": "MA Pain Management Auth Lookup",
+  "short_name": "MA Auth Lookup",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#1d4ed8",
+  "start_url": "./index.html",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

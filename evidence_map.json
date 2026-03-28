@@ -1,0 +1,2402 @@
+[
+  {
+    "evidence_id": "EVD-001",
+    "payer": "Medicare",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | No routine PA program identified for these injection families in Original Medicare FFS.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-002",
+    "payer": "Medicare",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod; MAC only if medically necessary | PA only when performed in HOPD. Office/ASC do not use this CMS OPD PA pathway. 64492/64495 are non-covered in the OPD PA file.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-003",
+    "payer": "Medicare",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local / Minimal | Massachusetts is not currently in WISeR. Follow LCD/NCD/medical necessity instead of assuming PA.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-004",
+    "payer": "Medicare",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | No routine PA program identified for this CPT family in Original Medicare FFS.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-005",
+    "payer": "Medicare",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local / MAC | No routine PA program identified for this CPT family in Original Medicare FFS.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-006",
+    "payer": "Medicare",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Trial: MAC/CON | Implant: MAC/GA | CMS OPD PA applies to implanted spinal neurostimulators in HOPD; current public list mainly points to CPT 63650 trial. Verify exact setting/code.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-007",
+    "payer": "Medicare",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | MAC / GA | No WISeR / routine PA pathway identified for Massachusetts Original Medicare for pain pump implantation.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-008",
+    "payer": "Medicare",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | MAC / GA | No routine PA program identified; coverage/LCD rules still apply.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-009",
+    "payer": "Medicare",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local / MAC | No routine PA program identified for this CPT family in Original Medicare FFS.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-010",
+    "payer": "Medicare",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local / Mod | No routine PA program identified; follow SI joint LCD/article and code edits.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Medicare. Vendor/entry point recorded as CMS OPD PA (limited HOPD use) / LCD-NCD.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cms.gov/data-research/monitoring-programs/medicare-fee-service-compliance-programs/prior-authorization-pre-claim-review-initiatives/prior-authorization-certain-hospital-outpatient-department-opd-services",
+      "https://www.cms.gov/priorities/innovation/innovation-models/wiser",
+      "https://www.cms.gov/medicare-coverage-database/view/lcd.aspx?lcdId=39383"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-011",
+    "payer": "Aetna",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Not listed on Aetna's public 2026 precert list; still verify if the member has a delegated/vendor exception.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-012",
+    "payer": "Aetna",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod; MAC only if medically necessary | Aetna public 2026 precert list routes 64490-64495 and 64633-64636 through eviCore for applicable plans.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-013",
+    "payer": "Aetna",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Minimal | Aetna public 2026 precert list routes 62320-62327 and 64479/64480/64483/64484 through eviCore for applicable plans.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-014",
+    "payer": "Aetna",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Not clearly shown on the public 2026 precert list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-015",
+    "payer": "Aetna",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Public list includes some pain/neurolysis-related codes, but this broad row spans codes not clearly listed. Check exact CPT in Availity/eviCore.",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-016",
+    "payer": "Aetna",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Trial: MAC/CON | Implant: MAC/GA | Dorsal column neurostimulator codes 63650/63655/63663/63664/63685/63688 require precert on the public 2026 list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-017",
+    "payer": "Aetna",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | MAC / GA | Public list does not cleanly expose intrathecal pump CPTs for all plans; verify exact CPT/product.",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-018",
+    "payer": "Aetna",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | MAC / GA | 22510-22515 are on Aetna's public 2026 precert list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-019",
+    "payer": "Aetna",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / MAC | Public list includes sympathetic block coding (for example 64520); verify exact CPT if outside listed set.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-020",
+    "payer": "Aetna",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / Mod | Public list shows 27096/G0260 rather than 64451. Verify by exact CPT and plan.",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-004",
+      "SRC-005"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Aetna. Vendor/entry point recorded as eviCore / Availity.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.aetna.com/content/dam/aetna/pdfs/aetnacom/healthcare-professionals/2026_Precert_List.pdf",
+      "https://www.aetna.com/health-care-professionals/precertification/precertification-lists.html"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-021",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Generally not a spine-program auth target in public MGBHP guidance; confirm with portal code checker.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-022",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod; MAC only if medically necessary | MGBHP Interventional Pain Management of the Spine policy covers facet/medial branch workflows and uses InterQual/customized criteria.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-023",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Minimal | MGBHP Interventional Pain Management of the Spine policy covers ESI workflows; submit through the MGBHP portal/code checker.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-024",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local | Not cleanly exposed in public code lists; verify via portal/code checker.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-025",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Not cleanly exposed in public code lists; verify via portal/code checker.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-026",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Trial: MAC/CON | Implant: MAC/GA | Use MGBHP portal/code checker; public provider docs do not cleanly expose code-level SCS PA by CPT.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-027",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | MAC / GA | Use MGBHP portal/code checker; public provider docs do not cleanly expose code-level pump PA by CPT.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-028",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | MAC / GA | Spine surgery policy and PA guide suggest vertebral augmentation may need review, but confirm exact CPT in portal.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-029",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Not cleanly exposed in public code lists; verify via portal/code checker.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-030",
+    "payer": "MGB Health Plan (AllWays/MGB)",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / Mod | Not cleanly exposed in public code lists; verify via portal/code checker.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MGB Health Plan (AllWays/MGB). Vendor/entry point recorded as MGBHP Provider Portal / Code Checker.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://massgeneralbrighamhealthplan.org/providers/authorization-guidelines",
+      "https://resources.massgeneralbrighamhealthplan.org/utilizationmgmt/PAGuide.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/medicalpolicy/InterventionalPainMgmtSpine.pdf",
+      "https://resources.massgeneralbrighamhealthplan.org/Provider/PPG/SpineSurgery.pdf",
+      "https://massgeneralbrighamhealthplan.org/providers/portal"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-031",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Common joint/trigger injection codes were not found on #221 InterQual musculoskeletal authorization list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-032",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod; MAC only if medically necessary | Facet diagnostic and RFA codes are on BCBSMA #221 InterQual musculoskeletal authorization list; use Authorization Manager.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-033",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Minimal | ESI / TFESI codes 62320-62327 and 64479-64484 appear on BCBSMA #221 list; use Authorization Manager.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-034",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Peripheral nerve block family not clearly shown on the public #221 list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-035",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / MAC | Several 646xx neurolytic/denervation codes appear on BCBSMA #221 list; check exact CPT in Authorization Manager.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-036",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Trial: MAC/CON | Implant: MAC/GA | Spinal cord stimulator codes appear on BCBSMA #221 list; use Authorization Manager / InterQual workflow.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-037",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | MAC / GA | Intrathecal pump implantation/replacement codes (62350, 62351) appear on BCBSMA #221 list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-038",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | MAC / GA | 22510-22515 vertebroplasty/kyphoplasty codes are on BCBSMA #221 list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-039",
+    "payer": "BCBS of Mass",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / MAC | Sympathetic block / pain-management codes such as 64510 and 64520 appear on BCBSMA #221 list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-040",
+    "payer": "BCBS of Mass",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod | 64451 appears on BCBSMA #221 InterQual musculoskeletal authorization list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-006",
+      "SRC-007",
+      "SRC-008"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for BCBS of Mass. Vendor/entry point recorded as Authorization Manager / InterQual.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.bluecrossma.org/medical-policies/sites/g/files/csphws2091/files/acquiadam-assets/221%20InterQual%20Musculoskeletal%20Services%20Management%20CPT%20and%20HCPCS%20Codes.pdf",
+      "https://provider.bluecrossma.com/ProviderHome/portal/home/etools/etools/mhk",
+      "https://www.bluecrossma.org/medical-policies/interqual-criteria"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-041",
+    "payer": "MassHealth",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local | MassHealth FFS and MCO products can differ. Simple office injections are often not on MCO spine vendor lists, but verify exact product.",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-042",
+    "payer": "MassHealth",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod; MAC only if medically necessary | MassHealth MCO matrices/public vendor workflows commonly require review for facet/RFA-type spine procedures. FFS rules can differ.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-043",
+    "payer": "MassHealth",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Minimal | MassHealth MCO matrices/public vendor workflows commonly require review for ESI/interventional spine procedures. FFS rules can differ.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-044",
+    "payer": "MassHealth",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local | Verify by product (FFS vs MCO such as WellSense/Tufts/WellSense ACO).",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-045",
+    "payer": "MassHealth",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Verify exact CPT and product; MCO pain management/spine vendor programs may apply.",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-046",
+    "payer": "MassHealth",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Trial: MAC/CON | Implant: MAC/GA | Public MCO matrices reference review pathways for spinal implants/spinal cord stimulators; confirm exact product/vendor.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-047",
+    "payer": "MassHealth",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | MAC / GA | Public MCO matrices reference review pathways for pain pumps/spinal implants; confirm exact product/vendor.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-048",
+    "payer": "MassHealth",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | MAC / GA | Use MassHealth POSC / MCO PA matrix for the exact product.",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-049",
+    "payer": "MassHealth",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Use MassHealth POSC / MCO PA matrix for the exact product.",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-050",
+    "payer": "MassHealth",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod | SI/spine procedures may route through MCO/vendor review; confirm exact product and CPT.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-030",
+      "SRC-031",
+      "SRC-032",
+      "SRC-033",
+      "SRC-034"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for MassHealth. Vendor/entry point recorded as POSC + MCO portal/vendor.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.mass.gov/prior-authorization-for-masshealth-providers",
+      "https://www.mass.gov/how-to/request-prior-authorization-for-nonpharmacy-services",
+      "https://www.mass.gov/info-details/masshealth-authorizations-and-referrals",
+      "https://www.wellsense.org/hubfs/Provider/Prior%20Authorization/MA_Prior_Auth_Matrix.pdf",
+      "https://www.wellsense.org/providers/prior-authorization"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-051",
+    "payer": "Tufts",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Not on the published 2026 Evolent interventional pain matrix.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-052",
+    "payer": "Tufts",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod; MAC only if medically necessary | Point32/Tufts uses Evolent for interventional spine pain management; 2026 matrix includes facet injections and facet RFA.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-053",
+    "payer": "Tufts",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Minimal | Point32/Tufts uses Evolent for interventional spine pain management; 2026 matrix includes interlaminar and transforaminal ESI.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-054",
+    "payer": "Tufts",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Not on the published 2026 Evolent interventional pain matrix.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-055",
+    "payer": "Tufts",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Broad neurolytic code family not cleanly exposed on the public matrix; verify exact CPT in portal/vendor.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-056",
+    "payer": "Tufts",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Trial: MAC/CON | Implant: MAC/GA | Public Point32 policies exist for implantable neurostimulators, but code-level PA workflow was not fully exposed on the public matrix. Verify.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-057",
+    "payer": "Tufts",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | MAC / GA | Public Point32 resources do not clearly expose code-level intrathecal pump PA on the interventional pain matrix. Verify.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-058",
+    "payer": "Tufts",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | MAC / GA | Public Point32 vertebral augmentation policy exists, but confirm the operational auth pathway by product.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-059",
+    "payer": "Tufts",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Verify exact CPT/product in Point32/Evolent workflow.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-060",
+    "payer": "Tufts",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / Mod | Verify exact CPT/product in Point32/Evolent workflow.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Tufts. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-061",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Not on the published 2026 Evolent interventional pain matrix.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-062",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod; MAC only if medically necessary | Point32/Harvard Pilgrim uses Evolent for interventional spine pain management; 2026 matrix includes facet injections and facet RFA.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-063",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Minimal | Point32/Harvard Pilgrim uses Evolent for interventional spine pain management; 2026 matrix includes interlaminar and transforaminal ESI.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-064",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Not on the published 2026 Evolent interventional pain matrix.",
+    "confidence": "High",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-065",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Broad neurolytic code family not cleanly exposed on the public matrix; verify exact CPT in portal/vendor.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-066",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Trial: MAC/CON | Implant: MAC/GA | Public Point32 policies exist for implantable neurostimulators, but code-level PA workflow was not fully exposed on the public matrix. Verify.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-067",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | MAC / GA | Public Point32 resources do not clearly expose code-level intrathecal pump PA on the interventional pain matrix. Verify.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-068",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | MAC / GA | Public Point32 vertebral augmentation policy exists, but confirm the operational auth pathway by product.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-069",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / MAC | Verify exact CPT/product in Point32/Evolent workflow.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-070",
+    "payer": "Harvard Pilgrim",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / Mod | Verify exact CPT/product in Point32/Evolent workflow.",
+    "confidence": "Medium",
+    "source_ids": [],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for Harvard Pilgrim. Vendor/entry point recorded as Point32 + Evolent.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.point32health.org/provider/prior-authorization",
+      "https://www.point32health.org/provider/prior-authorization-resources",
+      "https://www.point32health.org/provider/evolent-formerly-national-imaging-associates",
+      "https://www.point32health.org/provider/vendor-programs",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2025/06/Implantable-Neurostim-mng.pdf",
+      "https://www.point32health.org/provider/wp-content/uploads/sites/2/2024/01/VKPlasty-mng.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-071",
+    "payer": "United",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Simple joint/trigger injection family was not visible on UHC's public 2026 pain-management PA list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-072",
+    "payer": "United",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Verify | Local / Mod; MAC only if medically necessary | UHC public 2026 list explicitly calls out facet pain-management codes in Arizona and site-of-service logic elsewhere; verify member-specific requirements in portal/API.",
+    "confidence": "Medium",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Verify based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-073",
+    "payer": "United",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Minimal | UHC public 2026 commercial PA list includes 62320/62322/62324-62327 and 64484; other ESI-related codes should still be checked by exact CPT.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-074",
+    "payer": "United",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Peripheral nerve block family was not visible on UHC's public 2026 pain-management PA list.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-075",
+    "payer": "United",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / MAC | UHC public 2026 list includes pain-management codes such as 64520, 64620, and 64640; verify exact CPT if outside listed set.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-076",
+    "payer": "United",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Trial: MAC/CON | Implant: MAC/GA | UHC public 2026 list requires PA for spinal cord stimulator codes including 63650/63655/63662/63664/63685/63688.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-077",
+    "payer": "United",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | MAC / GA | UHC public 2026 pain-management list includes pain pump codes 62350/62351/62360/62361.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-078",
+    "payer": "United",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | MAC / GA | UHC public 2026 spinal surgery PA list includes 22510-22515.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-079",
+    "payer": "United",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / MAC | UHC public 2026 pain-management list includes sympathetic/neurolytic codes such as 64520.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-080",
+    "payer": "United",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod | UHC public 2026 pain-management list includes 64451.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-015",
+      "SRC-016",
+      "SRC-017"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for United. Vendor/entry point recorded as UHC Provider Portal / API / EDI 278.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/prior-auth/pa-requirements/commercial/UHC-Commercial-Advance-Notification-PA-Requirements-1-2026.pdf",
+      "https://www.uhcprovider.com/en/prior-auth-advance-notification/adv-notification-plan-reqs.html",
+      "https://www.uhcprovider.com/content/dam/provider/docs/public/admin-guides/2026-UHC-Administrative-Guide.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-081",
+    "payer": "Cigna",
+    "procedure_group": "Simple Joint/Trigger Point Injections",
+    "procedure_slug": "simple-joint-trigger-point-injections",
+    "cpt_family": "20600, 20605, 20610, 20550, 20551, 20552, 20553",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Simple joint/trigger injection family not shown in the public musculoskeletal quick-reference.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-082",
+    "payer": "Cigna",
+    "procedure_group": "Facet Joint Interventions (HOPD)",
+    "procedure_slug": "facet-joint-interventions-hopd",
+    "cpt_family": "64490-64491, 64493-64494 (diagnostic) | 64633-64636 (RFA)",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod; MAC only if medically necessary | Cigna/eviCore musculoskeletal program includes facet injections/medial branch blocks and radiofrequency joint ablations.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-083",
+    "payer": "Cigna",
+    "procedure_group": "Epidural Steroid Injections",
+    "procedure_slug": "epidural-steroid-injections",
+    "cpt_family": "62320-62323 | 64479-64484",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Minimal | Cigna/eviCore musculoskeletal program includes epidural steroid injections.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-084",
+    "payer": "Cigna",
+    "procedure_group": "Peripheral Nerve Blocks",
+    "procedure_slug": "peripheral-nerve-blocks",
+    "cpt_family": "64400-64450 series",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "No | Local | Peripheral nerve block family not clearly shown in the public musculoskeletal quick-reference.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=No based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-085",
+    "payer": "Cigna",
+    "procedure_group": "Neurolytic Blocks",
+    "procedure_slug": "neurolytic-blocks",
+    "cpt_family": "64600-64681",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / MAC | Cigna/eviCore quick-reference includes regional sympathetic blocks and ablations/denervations.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-086",
+    "payer": "Cigna",
+    "procedure_group": "Spinal Cord Stimulator Implants",
+    "procedure_slug": "spinal-cord-stimulator-implants",
+    "cpt_family": "63650-63664",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Trial: MAC/CON | Implant: MAC/GA | Cigna/eviCore quick-reference includes spinal cord and implantable peripheral nerve stimulators.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-087",
+    "payer": "Cigna",
+    "procedure_group": "Intrathecal Pumps",
+    "procedure_slug": "intrathecal-pumps",
+    "cpt_family": "62350-62365",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | MAC / GA | Cigna/eviCore quick-reference includes implantable intrathecal drug delivery systems.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-088",
+    "payer": "Cigna",
+    "procedure_group": "Vertebroplasty/Kyphoplasty",
+    "procedure_slug": "vertebroplasty-kyphoplasty",
+    "cpt_family": "22510-22515",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | MAC / GA | Cigna/eviCore guideline set includes vertebral augmentation / kyphoplasty.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-089",
+    "payer": "Cigna",
+    "procedure_group": "Sympathetic Blocks",
+    "procedure_slug": "sympathetic-blocks",
+    "cpt_family": "64505-64530",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / MAC | Cigna/eviCore quick-reference includes regional sympathetic blocks.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  },
+  {
+    "evidence_id": "EVD-090",
+    "payer": "Cigna",
+    "procedure_group": "SI Joint Denervation",
+    "procedure_slug": "si-joint-denervation",
+    "cpt_family": "64451",
+    "field_validated": "AUTH / SEDATION / DO NOT BOOK",
+    "value_in_matrix": "Yes | Local / Mod | Cigna/eviCore quick-reference includes sacroiliac joint injections/procedures; verify product if 64451 is billed instead of plan-preferred code mapping.",
+    "confidence": "High",
+    "source_ids": [
+      "SRC-018",
+      "SRC-019",
+      "SRC-020",
+      "SRC-021",
+      "SRC-022",
+      "SRC-023",
+      "SRC-024"
+    ],
+    "verification_method": "Compare listed CPT family to payer/CMS public auth or vendor matrix, then confirm product/site-of-service in portal if needed.",
+    "rationale_summary": "AUTH=Yes based on public source set for Cigna. Vendor/entry point recorded as eviCore.",
+    "public_limitations": "Public documents may not cover every product, employer carve-out, diagnosis rule, or place of service.",
+    "recommended_reviewer_action": "Re-check any Verify/Medium/Low row and any case where the member has MA/MCO/product complexity.",
+    "source_urls": [
+      "https://www.cigna.com/health-care-providers/coverage-and-claims/precertification",
+      "https://static.cigna.com/assets/chcp/resourceLibrary/preCertification/musculoskeletal.html",
+      "https://www.evicore.com/cigna",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Impl%20Intrathecal%20Drug%20Del%20Sys%20%28CMM-210%29%20_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_Epidural%20Steroid%20Inj%20%28CMM-200%29_FINAL_V1.0.2025_pub03.19.2025.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2024-04/Cigna_CMM-201%20Facet%20Joint%20Inj_MBB_Final_V1.0.2024_eff08.01.2024_pub04.25.2024.pdf",
+      "https://www.evicore.com/sites/default/files/clinical-guidelines/2025-03/Cigna_CMM-607%20Prim%20Vert%20Aug%20Per_Final_V1.0.2025_Pub03.19.2025_0.pdf"
+    ],
+    "last_verified": "2026-03-28",
+    "notes": "Matrix built from public payer/CMS/provider sources; member/product-specific portal check still required."
+  }
+]
