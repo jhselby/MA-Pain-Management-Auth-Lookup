@@ -23,7 +23,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #f5f5f5;
-            padding-bottom: 20px;
+            padding-bottom: 60px;
         }
 
         .header {
@@ -235,13 +235,173 @@
             opacity: 0.3;
         }
 
+        /* Disclaimer Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.hidden {
+            display: none;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            background: #ffc107;
+            color: #856404;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .modal-body {
+            padding: 24px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .modal-body p {
+            margin-bottom: 14px;
+        }
+
+        .modal-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .modal-body strong {
+            color: #2c5f8d;
+        }
+
+        .modal-footer {
+            padding: 0 24px 24px 24px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-btn-primary {
+            background: #2c5f8d;
+            color: white;
+        }
+
+        .modal-btn-primary:active {
+            background: #1e4563;
+        }
+
+        /* Disclaimer Footer */
+        .disclaimer-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff9e6;
+            border-top: 2px solid #ffc107;
+            padding: 8px 12px;
+            font-size: 10px;
+            line-height: 1.4;
+            color: #856404;
+            z-index: 99;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+        }
+
+        .disclaimer-footer strong {
+            font-size: 10px;
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .footer-text {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .footer-link {
+            color: #2c5f8d;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        .footer-link:active {
+            color: #1e4563;
+        }
+
+        /* Refresh button in header */
+        .refresh-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .refresh-btn:active {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
         @media (min-width: 768px) {
             .results {
                 max-width: 800px;
                 margin: 0 auto;
             }
 
-            .filters, .results-count {
+            .filters, .results-count, .disclaimer-footer {
                 max-width: 800px;
                 margin-left: auto;
                 margin-right: auto;
@@ -251,7 +411,15 @@
 </head>
 <body>
     <div class="header">
-        <h1>MA Pain Management Auth Lookup</h1>
+        <div class="header-top">
+            <h1>MA Pain Management Auth Lookup</h1>
+            <button class="refresh-btn" id="refreshBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                </svg>
+                Refresh
+            </button>
+        </div>
         <div class="search-container">
             <input 
                 type="text" 
@@ -274,6 +442,38 @@
     <div class="results-count" id="resultsCount"></div>
 
     <div class="results" id="results"></div>
+
+    <!-- Disclaimer Modal -->
+    <div class="modal-overlay hidden" id="disclaimerModal">
+        <div class="modal">
+            <div class="modal-header">
+                ⚠️ Important Notice
+            </div>
+            <div class="modal-body">
+                <p><strong>This tool is for reference purposes only.</strong></p>
+                <p>Prior authorization requirements change frequently and vary by patient insurance plan, site of service, medical necessity criteria, and individual payer policies. The information presented here was compiled from publicly available payer sources and is subject to change without notice.</p>
+                <p><strong>You must independently verify all authorization requirements directly with the applicable payer before scheduling or performing any procedure.</strong></p>
+                <p>Use of this tool does not guarantee accuracy of authorization status, coverage determinations, or reimbursement. The creators of this tool assume no liability for billing errors, claim denials, or other consequences resulting from reliance on this information.</p>
+                <p style="font-size: 12px; color: #666; margin-top: 16px;">Last updated: March 2026</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-primary" id="acceptDisclaimer">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer Footer -->
+    <div class="disclaimer-footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <strong>⚠️</strong>Reference only. Verify all requirements with payer before scheduling.
+            </div>
+            <div class="footer-links">
+                <a href="mailto:85697934+jhselby@users.noreply.github.com?subject=Auth%20Lookup%20Error%20Report&body=Please%20describe%20the%20error%3A%0A%0APayer%3A%20%0AProcedure%3A%20%0AWhat's%20incorrect%3A%20" class="footer-link">Report Error</a>
+                <a href="#" class="footer-link" id="showDisclaimerLink">Full Disclaimer</a>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Data will be embedded here
@@ -1132,6 +1332,33 @@
 
         // Initialize on page load
         init();
+
+        // Disclaimer modal management
+        const disclaimerModal = document.getElementById('disclaimerModal');
+        const acceptBtn = document.getElementById('acceptDisclaimer');
+        const showDisclaimerLink = document.getElementById('showDisclaimerLink');
+
+        // Check if user has already accepted disclaimer
+        if (!localStorage.getItem('disclaimerAccepted')) {
+            disclaimerModal.classList.remove('hidden');
+        } else {
+            disclaimerModal.classList.add('hidden');
+        }
+
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('disclaimerAccepted', 'true');
+            disclaimerModal.classList.add('hidden');
+        });
+
+        showDisclaimerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            disclaimerModal.classList.remove('hidden');
+        });
+
+        // Refresh button
+        document.getElementById('refreshBtn').addEventListener('click', () => {
+            location.reload(true); // Hard reload to bypass cache
+        });
     </script>
 </body>
 </html>
