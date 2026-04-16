@@ -30,6 +30,7 @@
       --low-bg: #fee2e2;
       --low-text: #991b1b;
       --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
     }
 
     * { box-sizing: border-box; }
@@ -60,18 +61,23 @@
       top: 8px;
       z-index: 20;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
+      pointer-events: none;
       margin-bottom: 8px;
     }
 
     .mini-btn {
+      pointer-events: auto;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,0.94);
-      color: var(--blue);
+      background: rgba(255,255,255,0.92);
+      color: var(--text);
       border-radius: 999px;
       box-shadow: var(--shadow);
       cursor: pointer;
       font-weight: 800;
+    }
+
+    .mini-icon-btn {
       width: 34px;
       min-width: 34px;
       height: 34px;
@@ -82,11 +88,25 @@
       justify-content: center;
       font-size: 1rem;
       line-height: 1;
+      color: var(--blue);
+    }
+
+    .mini-clear-btn {
+      padding: 6px 9px;
+      min-height: 32px;
+      font-size: 0.78rem;
     }
 
     .hero {
-      padding: 18px;
+      padding: 20px 18px 18px;
       margin-bottom: 14px;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     h1 {
@@ -108,7 +128,7 @@
       margin-top: 14px;
     }
 
-    .controls, .result {
+    .controls {
       padding: 16px;
     }
 
@@ -139,7 +159,7 @@
     .search-results {
       max-height: 220px;
       overflow-y: auto;
-      margin-top: -4px;
+      margin-top: 6px;
       margin-bottom: 12px;
     }
 
@@ -163,16 +183,8 @@
       line-height: 1.5;
     }
 
-    .status {
-      display: none;
-      margin-bottom: 10px;
-      border-radius: 14px;
-      padding: 12px 13px;
-      border: 1px solid var(--warn-line);
-      background: var(--warn-bg);
-      color: var(--warn-text);
-      font-size: 0.93rem;
-      line-height: 1.45;
+    .result {
+      padding: 16px;
     }
 
     .result-head {
@@ -184,7 +196,7 @@
     }
 
     .result-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 800;
       line-height: 1.15;
       margin: 0;
@@ -193,48 +205,73 @@
     .result-sub {
       color: var(--muted);
       margin-top: 5px;
-      font-size: 0.92rem;
+      font-size: 0.94rem;
       line-height: 1.4;
     }
 
     .confidence-wrap {
       text-align: center;
-      min-width: 68px;
+      min-width: 92px;
     }
 
     .confidence-label {
-      font-size: 0.68rem;
+      font-size: 0.76rem;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       color: var(--muted);
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       font-weight: 700;
-      line-height: 1.15;
-    }
-
-    .confidence-help {
-      display: block;
-      font-size: 0.6rem;
-      font-weight: 500;
-      text-transform: none;
-      letter-spacing: 0;
-      margin-top: 2px;
     }
 
     .confidence-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 60px;
-      padding: 6px 10px;
+      min-width: 82px;
+      padding: 9px 12px;
       border-radius: 999px;
       font-weight: 800;
-      font-size: 0.82rem;
+      font-size: 0.9rem;
     }
 
     .high { background: var(--good-bg); color: var(--good-text); }
     .medium, .verify { background: var(--med-bg); color: var(--med-text); }
     .low { background: var(--low-bg); color: var(--low-text); }
+
+    .friction-wrap {
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    .friction-label-title {
+      font-size: 0.65rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .friction-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 60px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .friction-reasons {
+      margin-top: 4px;
+      font-size: 0.68rem;
+      color: var(--muted);
+      line-height: 1.25;
+      max-width: 120px;
+      word-break: break-word;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
 
     .grid {
       display: grid;
@@ -314,6 +351,10 @@
       background: #fbfcfe;
     }
 
+    .accordion.open .accordion-panel {
+      display: block;
+    }
+
     .small {
       font-size: 0.9rem;
       color: var(--muted);
@@ -331,6 +372,18 @@
     .evidence-card h4, .source-card h4 {
       margin: 0 0 8px;
       font-size: 0.98rem;
+    }
+
+    .status {
+      display: none;
+      margin-bottom: 10px;
+      border-radius: 14px;
+      padding: 12px 13px;
+      border: 1px solid var(--warn-line);
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      font-size: 0.93rem;
+      line-height: 1.45;
     }
 
     .footer-warning {
@@ -421,22 +474,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
       text-align: center;
       border: 1px solid var(--warn-line);
       background: rgba(255,247,237,0.96);
       color: var(--warn-text);
       border-radius: 999px;
-      padding: 8px 12px;
+      padding: 9px 14px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(8px);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
     }
 
     .sticky-links {
       display: inline-flex;
-      gap: 8px;
+      gap: 10px;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
@@ -447,15 +500,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 5px 10px;
+      padding: 8px 14px;
       border-radius: 999px;
       border: 1px solid var(--warn-line);
       background: #fff;
       color: var(--warn-text);
       text-decoration: none;
       font-weight: 700;
-      min-height: 28px;
-      font-size: 0.82rem;
+      min-height: 36px;
     }
 
     .pill-link:hover {
@@ -467,7 +519,7 @@
 
     @media (max-width: 640px) {
       .grid { grid-template-columns: 1fr; }
-      .result-head { flex-direction: column; }
+      .hero-top, .result-head { flex-direction: column; }
       .confidence-wrap { text-align: left; min-width: 0; }
     }
 
@@ -485,12 +537,17 @@
 <body>
   <div class="app">
     <div class="corner-btns">
-      <button class="mini-btn" id="refreshBtn" type="button" aria-label="Refresh data" title="Refresh data">↻</button>
+      <button class="mini-btn mini-icon-btn" id="refreshBtn" type="button" aria-label="Refresh data" title="Refresh data">↻</button>
+      <button class="mini-btn mini-clear-btn" id="clearBtn" type="button">Clear</button>
     </div>
 
     <section class="card hero">
-      <h1>MA Pain Management Auth Lookup</h1>
-      <div class="subline" id="lastUpdatedLine">Last updated: loading...</div>
+      <div class="hero-top">
+        <div>
+          <h1>MA Pain Management Auth Lookup</h1>
+          <div class="subline" id="lastUpdatedLine">Last updated: loading...</div>
+        </div>
+      </div>
     </section>
 
     <div class="notice-overlay" id="noticeOverlay" aria-hidden="false">
@@ -521,17 +578,17 @@
           <option value="">Select a payer</option>
         </select>
 
+        <label for="searchBox">Search Procedure or Code</label>
+        <input id="searchBox" type="search" placeholder="Type a procedure name or CPT family">
+        <div id="searchResults" class="search-results"></div>
+
         <label for="procedureSelect">Procedure</label>
         <select id="procedureSelect">
           <option value="">Select a procedure</option>
         </select>
 
-        <label for="searchBox">Search Procedure or Code</label>
-        <input id="searchBox" type="search" placeholder="Type to quickly find a procedure">
-        <div id="searchResults" class="search-results"></div>
-
         <div class="helper">
-          Pick the insurance first. You can either use the full procedure dropdown or type and click a live search result. The dropdown selection wins.
+          Pick the insurance first. You can either type to search and click a live result, or use the full procedure dropdown. If you choose from the dropdown, that selection wins.
         </div>
       </section>
 
@@ -550,8 +607,13 @@
               <div class="result-sub" id="resultSubtitle"></div>
             </div>
             <div class="confidence-wrap">
-              <div class="confidence-label">Confidence<span class="confidence-help">source strength</span></div>
+              <div class="confidence-label">Confidence</div>
               <div class="confidence-pill verify" id="confidencePill">Verify</div>
+              <div class="friction-wrap">
+                <div class="friction-label-title">Friction</div>
+                <div id="frictionLabel" class="friction-pill verify">Unknown</div>
+                <div id="frictionReasons" class="friction-reasons"></div>
+              </div>
             </div>
           </div>
 
@@ -584,6 +646,14 @@
               <div class="cell-label">Do not book / not covered / booking note</div>
               <div class="cell-value" id="bookingNote"></div>
             </div>
+          </div>
+
+          <div class="accordion" id="implementationAccordion">
+            <button class="accordion-btn" type="button" data-target="implementationPanel" aria-expanded="false">
+              <span class="accordion-left">Implementation note</span>
+              <span class="chev">▶</span>
+            </button>
+            <div class="accordion-panel" id="implementationPanel"></div>
           </div>
 
           <div class="accordion" id="evidenceAccordion">
@@ -630,9 +700,10 @@
     const els = {
       statusBanner: document.getElementById("statusBanner"),
       refreshBtn: document.getElementById("refreshBtn"),
+      clearBtn: document.getElementById("clearBtn"),
       payerSelect: document.getElementById("payerSelect"),
-      procedureSelect: document.getElementById("procedureSelect"),
       searchBox: document.getElementById("searchBox"),
+      procedureSelect: document.getElementById("procedureSelect"),
       searchResults: document.getElementById("searchResults"),
       emptyState: document.getElementById("emptyState"),
       resultState: document.getElementById("resultState"),
@@ -646,6 +717,7 @@
       cptValue: document.getElementById("cptValue"),
       scopeValue: document.getElementById("scopeValue"),
       bookingNote: document.getElementById("bookingNote"),
+      implementationPanel: document.getElementById("implementationPanel"),
       evidencePanel: document.getElementById("evidencePanel"),
       sourcesPanel: document.getElementById("sourcesPanel"),
       lastUpdatedLine: document.getElementById("lastUpdatedLine"),
@@ -693,14 +765,6 @@
       if (v.includes("low")) return "low";
       if (v.includes("medium")) return "medium";
       return "verify";
-    }
-
-    function clearDetailPanels() {
-      els.evidencePanel.innerHTML = "";
-      els.sourcesPanel.innerHTML = "";
-      document.querySelectorAll(".accordion").forEach(acc => acc.classList.remove("open"));
-      document.querySelectorAll(".accordion-btn").forEach(btn => btn.setAttribute("aria-expanded", "false"));
-      document.querySelectorAll(".accordion-panel").forEach(panel => panel.style.display = "none");
     }
 
     function payerProcedureEntries() {
@@ -823,13 +887,15 @@
       }
     }
 
+    function openAccordionsClosed() {
+      document.querySelectorAll(".accordion").forEach(acc => acc.classList.remove("open"));
+      document.querySelectorAll(".accordion-btn").forEach(btn => btn.setAttribute("aria-expanded", "false"));
+    }
+
     function renderResult() {
       const payer = els.payerSelect.value;
       const procKey = els.procedureSelect.value;
-
       if (!payer || !procKey) {
-        clearStatus();
-        clearDetailPanels();
         els.resultState.classList.add("hidden");
         els.emptyState.classList.remove("hidden");
         return;
@@ -837,10 +903,8 @@
 
       const proc = state.rules.procedures[procKey];
       const rule = proc?.payers?.[payer];
-
       if (!rule) {
         showStatus("No rule found for that payer/procedure combination in the current JSON.");
-        clearDetailPanels();
         els.resultState.classList.add("hidden");
         els.emptyState.classList.remove("hidden");
         return;
@@ -859,10 +923,30 @@
       els.cptValue.textContent = proc.cpt_family || "Not provided";
       els.scopeValue.textContent = rule.state_scope || "Not provided";
       els.bookingNote.textContent = rule.do_not_book || "Not provided";
+      els.implementationPanel.textContent = rule.implementation_note || "No implementation note provided.";
 
       const conf = rule.confidence || "Verify";
       els.confidencePill.textContent = conf;
       els.confidencePill.className = `confidence-pill ${confidenceClass(conf)}`;
+
+      const friction = rule.friction_label || "";
+      const frictionEl = document.getElementById("frictionLabel");
+      const frictionReasonsEl = document.getElementById("frictionReasons");
+      if (frictionEl) {
+        frictionEl.textContent = friction || "Unknown";
+        const frictionClassMap = {
+          "Low": "high",
+          "Moderate": "medium",
+          "High": "low",
+          "Very High": "low"
+        };
+        const frictionClass = frictionClassMap[friction] || "verify";
+        frictionEl.className = `friction-pill ${frictionClass}`;
+      }
+      if (frictionReasonsEl) {
+        const reasons = Array.isArray(rule.friction_reasons) ? rule.friction_reasons.slice(0, 2) : [];
+        frictionReasonsEl.textContent = reasons.length ? reasons.join(" + ") : "";
+      }
 
       const evidenceRows = state.evidence.filter(e => (rule.evidence_ids || []).includes(e.evidence_id));
       renderEvidence(evidenceRows);
@@ -870,9 +954,7 @@
       const sourceRows = state.sources.filter(s => (rule.source_ids || []).includes(s.source_id));
       renderSources(sourceRows);
 
-      document.querySelectorAll(".accordion").forEach(acc => acc.classList.remove("open"));
-      document.querySelectorAll(".accordion-btn").forEach(btn => btn.setAttribute("aria-expanded", "false"));
-      document.querySelectorAll(".accordion-panel").forEach(panel => panel.style.display = "none");
+      openAccordionsClosed();
     }
 
     async function loadAllData() {
@@ -891,10 +973,6 @@
     async function refreshData() {
       try {
         state.cacheBust = Date.now();
-        els.payerSelect.value = "";
-        els.procedureSelect.value = "";
-        els.searchBox.value = "";
-        els.searchResults.innerHTML = "";
         showStatus("Refreshing data...");
         await loadAllData();
         populatePayers();
@@ -902,9 +980,7 @@
         els.lastUpdatedLine.textContent = `Last updated: ${formatDate(state.metadata.generated_at)}`;
         els.globalWarning.textContent = state.metadata.warning || "";
         clearStatus();
-        clearDetailPanels();
-        els.resultState.classList.add("hidden");
-        els.emptyState.classList.remove("hidden");
+        renderResult();
       } catch (err) {
         showStatus(`Could not load JSON files. ${err.message}`);
       }
@@ -927,26 +1003,36 @@
     }
 
     function maybeShowNotice() {
-      let dismissed = false;
       try {
-        dismissed = localStorage.getItem("ma-pain-auth-notice-dismissed") === "1";
+        if (localStorage.getItem("ma-pain-auth-notice-dismissed") === "1") {
+          els.noticeOverlay.classList.add("hidden");
+          els.noticeOverlay.setAttribute("aria-hidden", "true");
+          return;
+        }
       } catch (err) {}
-      if (dismissed) {
-        els.noticeOverlay.classList.add("hidden");
-        els.noticeOverlay.setAttribute("aria-hidden", "true");
-      } else {
-        els.noticeOverlay.classList.remove("hidden");
-        els.noticeOverlay.setAttribute("aria-hidden", "false");
-      }
+      els.noticeOverlay.classList.remove("hidden");
+      els.noticeOverlay.setAttribute("aria-hidden", "false");
+    }
+
+    function clearAll() {
+      els.payerSelect.value = "";
+      els.searchBox.value = "";
+      els.searchResults.innerHTML = "";
+      populateProcedures(false);
+      clearStatus();
+      els.resultState.classList.add("hidden");
+      els.emptyState.classList.remove("hidden");
+      document.querySelectorAll(".accordion").forEach(acc => acc.classList.remove("open"));
+      els.procedureSelect.value = "";
     }
 
     function toggleAccordion(btn) {
       const panelId = btn.getAttribute("data-target");
-      const panel = document.getElementById(panelId);
       const parent = btn.closest(".accordion");
       const isOpen = parent.classList.contains("open");
       parent.classList.toggle("open", !isOpen);
       btn.setAttribute("aria-expanded", String(!isOpen));
+      const panel = document.getElementById(panelId);
       panel.style.display = !isOpen ? "block" : "none";
     }
 
@@ -955,28 +1041,21 @@
     });
 
     els.payerSelect.addEventListener("change", () => {
-      const previousProcedure = els.procedureSelect.value;
-      populateProcedures(true);
-      if (previousProcedure) {
-        const exists = Array.from(els.procedureSelect.options).some(opt => opt.value === previousProcedure);
-        if (exists) {
-          els.procedureSelect.value = previousProcedure;
-        }
-      }
+      populateProcedures(false);
       els.searchResults.innerHTML = "";
       els.searchBox.value = "";
-      clearDetailPanels();
-      renderResult();
-    });
-
-    els.procedureSelect.addEventListener("change", () => {
-      els.searchResults.innerHTML = "";
-      if (!els.procedureSelect.value) clearDetailPanels();
       renderResult();
     });
 
     els.searchBox.addEventListener("input", renderSearchResults);
+
+    els.procedureSelect.addEventListener("change", () => {
+      els.searchResults.innerHTML = "";
+      renderResult();
+    });
+
     els.refreshBtn.addEventListener("click", refreshData);
+    els.clearBtn.addEventListener("click", clearAll);
     els.dismissNoticeBtn.addEventListener("click", dismissNotice);
     els.acknowledgeNoticeBtn.addEventListener("click", dismissNotice);
     els.footerDisclaimerLink.addEventListener("click", (e) => {

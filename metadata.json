@@ -1,6 +1,6 @@
 {
   "dataset_name": "MA Pain Management Authorization Matrix",
-  "generated_at": "2026-03-28T23:39:08.647193+00:00",
+  "generated_at": "2026-04-16T16:19:06.049675+00:00",
   "generated_from": "data.xlsx",
   "workbook_expected_name_for_local_edits": "data.xlsx",
   "coverage_scope": "Massachusetts pain management payers",
@@ -11,6 +11,11 @@
   ],
   "payer_count": 9,
   "procedure_count": 10,
+  "metrics_layer_notes": "Friction fields are operational burden signals derived from auth requirement, vendor workflow, ambiguity, evidence/source linkage, and limited public payer-level metrics.",
+  "public_metrics_payers": [
+    "MassHealth",
+    "United"
+  ],
   "warning": "Use as decision support. Always verify member/product/site-of-service details in the payer or delegated-vendor portal before booking.",
   "local_testing_tip": "If index.html is opened directly and JSON fails to load, run 'python -m http.server' in this folder and open http://localhost:8000."
 }

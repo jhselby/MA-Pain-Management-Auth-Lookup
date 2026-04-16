@@ -1,6 +1,6 @@
 {
   "dataset_name": "MA Pain Management Authorization Matrix",
-  "generated_at": "2026-03-28T23:39:08.647187+00:00",
+  "generated_at": "2026-04-16T16:19:06.049675+00:00",
   "generated_from": "data.xlsx",
   "payers": [
     "Aetna",
@@ -35,7 +35,11 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
-          ]
+          ],
+          "payer_metrics": {},
+          "friction_score": 0,
+          "friction_label": "Low",
+          "friction_reasons": []
         },
         "Aetna": {
           "auth": "No",
@@ -52,6 +56,13 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "Ambiguous public guidance"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -66,7 +77,14 @@
           "evidence_ids": [
             "EVD-021"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "BCBS of Mass": {
           "auth": "No",
@@ -84,6 +102,12 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 1,
+          "friction_label": "Low",
+          "friction_reasons": [
+            "Vendor or portal workflow"
           ]
         },
         "MassHealth": {
@@ -104,6 +128,26 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -118,7 +162,14 @@
           "evidence_ids": [
             "EVD-051"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "No",
@@ -132,7 +183,14 @@
           "evidence_ids": [
             "EVD-061"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "United": {
           "auth": "No",
@@ -150,6 +208,22 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -172,6 +246,12 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 1,
+          "friction_label": "Low",
+          "friction_reasons": [
+            "Vendor or portal workflow"
           ]
         }
       }
@@ -197,6 +277,12 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
+          ],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required"
           ]
         },
         "Aetna": {
@@ -214,6 +300,13 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -228,7 +321,15 @@
           "evidence_ids": [
             "EVD-022"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "BCBS of Mass": {
           "auth": "Yes",
@@ -246,6 +347,13 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         },
         "MassHealth": {
@@ -266,6 +374,24 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -280,7 +406,15 @@
           "evidence_ids": [
             "EVD-052"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "Yes",
@@ -294,7 +428,15 @@
           "evidence_ids": [
             "EVD-062"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "United": {
           "auth": "Verify",
@@ -312,6 +454,25 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -334,6 +495,13 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         }
       }
@@ -359,7 +527,11 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
-          ]
+          ],
+          "payer_metrics": {},
+          "friction_score": 0,
+          "friction_label": "Low",
+          "friction_reasons": []
         },
         "Aetna": {
           "auth": "Yes",
@@ -376,6 +548,13 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -390,7 +569,15 @@
           "evidence_ids": [
             "EVD-023"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "BCBS of Mass": {
           "auth": "Yes",
@@ -408,6 +595,13 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         },
         "MassHealth": {
@@ -428,6 +622,24 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -442,7 +654,15 @@
           "evidence_ids": [
             "EVD-053"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "Yes",
@@ -456,7 +676,15 @@
           "evidence_ids": [
             "EVD-063"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "United": {
           "auth": "Yes",
@@ -474,6 +702,24 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Ambiguous public guidance",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -496,6 +742,13 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         }
       }
@@ -521,7 +774,11 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
-          ]
+          ],
+          "payer_metrics": {},
+          "friction_score": 0,
+          "friction_label": "Low",
+          "friction_reasons": []
         },
         "Aetna": {
           "auth": "No",
@@ -538,6 +795,13 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "Ambiguous public guidance"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -552,7 +816,17 @@
           "evidence_ids": [
             "EVD-024"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "BCBS of Mass": {
           "auth": "No",
@@ -570,6 +844,13 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "Ambiguous public guidance"
           ]
         },
         "MassHealth": {
@@ -590,6 +871,26 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -604,7 +905,14 @@
           "evidence_ids": [
             "EVD-054"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "No",
@@ -618,7 +926,14 @@
           "evidence_ids": [
             "EVD-064"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "No linked source register entry"
+          ]
         },
         "United": {
           "auth": "No",
@@ -636,6 +951,22 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -658,6 +989,13 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 2,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Vendor or portal workflow",
+            "Ambiguous public guidance"
           ]
         }
       }
@@ -683,7 +1021,11 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
-          ]
+          ],
+          "payer_metrics": {},
+          "friction_score": 0,
+          "friction_label": "Low",
+          "friction_reasons": []
         },
         "Aetna": {
           "auth": "Verify",
@@ -700,6 +1042,15 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -714,7 +1065,17 @@
           "evidence_ids": [
             "EVD-025"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "BCBS of Mass": {
           "auth": "Yes",
@@ -732,6 +1093,14 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Ambiguous public guidance"
           ]
         },
         "MassHealth": {
@@ -752,6 +1121,26 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -766,7 +1155,17 @@
           "evidence_ids": [
             "EVD-055"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "Verify",
@@ -780,7 +1179,17 @@
           "evidence_ids": [
             "EVD-065"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "United": {
           "auth": "Yes",
@@ -798,6 +1207,24 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Ambiguous public guidance",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -820,6 +1247,13 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         }
       }
@@ -845,6 +1279,14 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Ambiguous public guidance",
+            "Higher-complexity procedure family"
           ]
         },
         "Aetna": {
@@ -862,6 +1304,14 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -876,7 +1326,17 @@
           "evidence_ids": [
             "EVD-026"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "BCBS of Mass": {
           "auth": "Yes",
@@ -894,6 +1354,14 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family"
           ]
         },
         "MassHealth": {
@@ -914,6 +1382,26 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 8,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Ambiguous public guidance",
+            "Higher-complexity procedure family",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -928,7 +1416,18 @@
           "evidence_ids": [
             "EVD-056"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "Verify",
@@ -942,7 +1441,18 @@
           "evidence_ids": [
             "EVD-066"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "United": {
           "auth": "Yes",
@@ -960,6 +1470,24 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -982,6 +1510,14 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family"
           ]
         }
       }
@@ -1007,6 +1543,12 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
+          ],
+          "payer_metrics": {},
+          "friction_score": 1,
+          "friction_label": "Low",
+          "friction_reasons": [
+            "Higher-complexity procedure family"
           ]
         },
         "Aetna": {
@@ -1024,6 +1566,16 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "Higher-complexity procedure family"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -1038,7 +1590,17 @@
           "evidence_ids": [
             "EVD-027"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "BCBS of Mass": {
           "auth": "Yes",
@@ -1056,6 +1618,14 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family"
           ]
         },
         "MassHealth": {
@@ -1076,6 +1646,26 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 8,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Ambiguous public guidance",
+            "Higher-complexity procedure family",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -1090,7 +1680,18 @@
           "evidence_ids": [
             "EVD-057"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "Verify",
@@ -1104,7 +1705,18 @@
           "evidence_ids": [
             "EVD-067"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "United": {
           "auth": "Yes",
@@ -1122,6 +1734,24 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -1144,6 +1774,14 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family"
           ]
         }
       }
@@ -1169,6 +1807,12 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
+          ],
+          "payer_metrics": {},
+          "friction_score": 1,
+          "friction_label": "Low",
+          "friction_reasons": [
+            "Higher-complexity procedure family"
           ]
         },
         "Aetna": {
@@ -1186,6 +1830,14 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -1200,7 +1852,18 @@
           "evidence_ids": [
             "EVD-028"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "BCBS of Mass": {
           "auth": "Yes",
@@ -1218,6 +1881,14 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family"
           ]
         },
         "MassHealth": {
@@ -1238,6 +1909,27 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 8,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "Higher-complexity procedure family",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -1252,7 +1944,17 @@
           "evidence_ids": [
             "EVD-058"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "Verify",
@@ -1266,7 +1968,17 @@
           "evidence_ids": [
             "EVD-068"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "No linked source register entry",
+            "Higher-complexity procedure family"
+          ]
         },
         "United": {
           "auth": "Yes",
@@ -1284,6 +1996,24 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -1306,6 +2036,14 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Higher-complexity procedure family"
           ]
         }
       }
@@ -1331,7 +2069,11 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
-          ]
+          ],
+          "payer_metrics": {},
+          "friction_score": 0,
+          "friction_label": "Low",
+          "friction_reasons": []
         },
         "Aetna": {
           "auth": "Yes",
@@ -1348,6 +2090,14 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Ambiguous public guidance"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -1362,7 +2112,17 @@
           "evidence_ids": [
             "EVD-029"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "BCBS of Mass": {
           "auth": "Yes",
@@ -1380,6 +2140,13 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         },
         "MassHealth": {
@@ -1400,6 +2167,26 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -1414,7 +2201,17 @@
           "evidence_ids": [
             "EVD-059"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "Verify",
@@ -1428,7 +2225,17 @@
           "evidence_ids": [
             "EVD-069"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "United": {
           "auth": "Yes",
@@ -1446,6 +2253,23 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -1468,6 +2292,13 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         }
       }
@@ -1493,7 +2324,11 @@
             "SRC-001",
             "SRC-002",
             "SRC-003"
-          ]
+          ],
+          "payer_metrics": {},
+          "friction_score": 0,
+          "friction_label": "Low",
+          "friction_reasons": []
         },
         "Aetna": {
           "auth": "Verify",
@@ -1510,6 +2345,15 @@
           "source_ids": [
             "SRC-004",
             "SRC-005"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance"
           ]
         },
         "MGB Health Plan (AllWays/MGB)": {
@@ -1524,7 +2368,17 @@
           "evidence_ids": [
             "EVD-030"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "BCBS of Mass": {
           "auth": "Yes",
@@ -1542,6 +2396,13 @@
             "SRC-006",
             "SRC-007",
             "SRC-008"
+          ],
+          "payer_metrics": {},
+          "friction_score": 3,
+          "friction_label": "Moderate",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow"
           ]
         },
         "MassHealth": {
@@ -1562,6 +2423,25 @@
             "SRC-032",
             "SRC-033",
             "SRC-034"
+          ],
+          "payer_metrics": {
+            "metrics_source": "MassHealth Calendar Year 2025 Prior Authorization Metrics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": 4.21,
+            "avg_expedited_turnaround_days": 1.33,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate",
+            "notes": "Public metrics now available. Use as payer-level friction context only, not CPT-specific denial intelligence."
+          },
+          "friction_score": 7,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Ambiguous public guidance",
+            "Moderate denial environment",
+            "Moderate strictness payer",
+            "Moderate standard turnaround"
           ]
         },
         "Tufts": {
@@ -1576,7 +2456,17 @@
           "evidence_ids": [
             "EVD-060"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "Harvard Pilgrim": {
           "auth": "Verify",
@@ -1590,7 +2480,17 @@
           "evidence_ids": [
             "EVD-070"
           ],
-          "source_ids": []
+          "source_ids": [],
+          "payer_metrics": {},
+          "friction_score": 5,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Coverage needs verification",
+            "Vendor or portal workflow",
+            "Moderate certainty",
+            "Ambiguous public guidance",
+            "No linked source register entry"
+          ]
         },
         "United": {
           "auth": "Yes",
@@ -1608,6 +2508,23 @@
             "SRC-015",
             "SRC-016",
             "SRC-017"
+          ],
+          "payer_metrics": {
+            "metrics_source": "UnitedHealthcare Prior Authorization Utilization Review Statistics",
+            "metrics_as_of": "2026-04",
+            "avg_standard_turnaround_days": null,
+            "avg_expedited_turnaround_days": null,
+            "denial_signal": "Moderate",
+            "strictness_signal": "Moderate-High",
+            "notes": "Public utilization review statistics exist, but they are broad and not Massachusetts pain-procedure specific."
+          },
+          "friction_score": 6,
+          "friction_label": "Very High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Moderate denial environment",
+            "Higher strictness payer"
           ]
         },
         "Cigna": {
@@ -1630,6 +2547,14 @@
             "SRC-022",
             "SRC-023",
             "SRC-024"
+          ],
+          "payer_metrics": {},
+          "friction_score": 4,
+          "friction_label": "High",
+          "friction_reasons": [
+            "Auth required",
+            "Vendor or portal workflow",
+            "Ambiguous public guidance"
           ]
         }
       }
